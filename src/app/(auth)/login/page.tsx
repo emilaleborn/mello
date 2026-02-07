@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { signInWithPopup, signInWithRedirect, GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '@/lib/firebase/config';
@@ -72,6 +73,13 @@ export default function LoginPage() {
 
       <div className="w-full max-w-sm rounded-2xl border border-[var(--border)] bg-[var(--background-elevated)]/80 backdrop-blur-xl p-8 shadow-xl">
         <div className="mb-8 text-center">
+          <Image
+            src="/icons/icon-512.png"
+            alt="Mello"
+            width={80}
+            height={80}
+            className="mx-auto mb-3 rounded-full"
+          />
           <h1 className="bg-gradient-to-r from-[var(--mello-gold)] via-[var(--mello-magenta)] to-[var(--mello-purple)] bg-clip-text text-5xl font-display font-black tracking-tight text-transparent text-glow-gold">
             Mello
           </h1>
