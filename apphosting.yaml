@@ -7,28 +7,37 @@ runConfig:
 
 env:
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: "AIzaSyC4IxuoP--h4fnAN5fyOTmsgR6WHvM1vn0"
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: "mello-94ca6.firebaseapp.com"
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: "mello-94ca6"
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: "mello-94ca6.firebasestorage.app"
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "262534846833"
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "1:262534846833:web:5e719d92af43fde517fed0"
     availability:
       - BUILD
       - RUNTIME
   - variable: NEXT_PUBLIC_USE_EMULATORS
     value: "false"
+    availability:
+      - BUILD
+      - RUNTIME
