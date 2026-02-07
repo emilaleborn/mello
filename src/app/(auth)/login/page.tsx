@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { signInWithPopup, GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
+import { signInWithPopup, signInWithRedirect, GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '@/lib/firebase/config';
 import { useAuthStore } from '@/stores/authStore';
@@ -28,7 +28,12 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
     try {
-      await signInWithPopup(auth, new GoogleAuthProvider());
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+      if (isStandalone) {
+        await signInWithRedirect(auth, new GoogleAuthProvider());
+      } else {
+        await signInWithPopup(auth, new GoogleAuthProvider());
+      }
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Sign-in failed';
       setError(msg);
