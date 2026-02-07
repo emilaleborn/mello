@@ -16,7 +16,7 @@ export function BottomNav() {
 
   const getActive = (href: string) => {
     if (href === '/') return pathname === '/';
-    if (href === '/events') return pathname === '/events' || pathname.startsWith('/event/');
+    if (href === '/events') return pathname === '/events' || pathname.startsWith('/event/') || pathname === '/artists' || pathname.startsWith('/artist/');
     return pathname.startsWith(href);
   };
 

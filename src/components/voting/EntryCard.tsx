@@ -1,10 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { VoteSlider } from './VoteSlider';
 import { FavoriteButton } from './FavoriteButton';
 import { PartyAverageScore } from './PartyAverageScore';
+import { ArtistImage } from '@/components/ui/ArtistImage';
 import type { Entry } from '@/types';
 import type { SavingStatus } from '@/stores/votingStore';
 
@@ -42,15 +44,18 @@ export function EntryCard({
       }`}
     >
       <div className="mb-3 flex items-start justify-between">
-        <div className="flex items-start gap-3">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--mello-gold)]/15 text-sm font-bold text-[var(--mello-gold)] border border-[var(--mello-gold)]/30">
-            {entry.startNumber}
-          </span>
-          <div>
-            <h3 className="font-bold text-white">{entry.artist}</h3>
-            <p className="text-sm text-[var(--foreground-muted)]">{entry.song}</p>
+        <Link href={`/artist/${entry.id}`} className="flex items-start gap-3 min-w-0 flex-1">
+          <div className="relative shrink-0">
+            <ArtistImage entryId={entry.id} artistName={entry.artist} size={48} />
+            <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[var(--mello-gold)] text-[10px] font-bold text-black">
+              {entry.startNumber}
+            </span>
           </div>
-        </div>
+          <div className="min-w-0">
+            <h3 className="font-bold text-white">{entry.artist}</h3>
+            <p className="truncate text-sm text-[var(--foreground-muted)]">{entry.song}</p>
+          </div>
+        </Link>
         <FavoriteButton active={isFavorite} onToggle={onToggleFavorite} disabled={disabled} />
       </div>
 

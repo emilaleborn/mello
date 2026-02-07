@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+import { Users } from 'lucide-react';
 import { MELLO_EVENTS } from '@/constants/events';
 import { ENTRIES_BY_EVENT } from '@/constants/entries';
 import { useCurrentEvent } from '@/hooks/useCurrentEvent';
@@ -56,6 +58,20 @@ function EventsListContent() {
             />
           );
         })}
+
+        {/* All artists link */}
+        <Link
+          href="/artists"
+          className="flex items-center gap-3 rounded-2xl bg-[var(--background-elevated)] p-4 transition-colors active:bg-[var(--background-surface)]"
+        >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--mello-purple)]/20">
+            <Users className="h-5 w-5 text-[var(--mello-purple-light)]" />
+          </div>
+          <div>
+            <p className="font-medium text-white">Alla artister</p>
+            <p className="text-sm text-[var(--foreground-muted)]">Bläddra bland alla 30 bidrag</p>
+          </div>
+        </Link>
       </div>
     </div>
   );

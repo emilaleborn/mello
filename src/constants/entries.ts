@@ -9,6 +9,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Greczula',
       song: 'Half of me',
       songwriters: ['Andreas Werling', 'Karl Ivert', 'Kian Sang', 'Greczula'],
+      bio: 'Greczula är en svensk-polsk artist och låtskrivare som gör sin Melodifestivalen-debut med den kraftfulla balladen "Half of Me".',
     },
     {
       id: 'dt1-2',
@@ -17,6 +18,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Jacqline',
       song: 'Woman',
       songwriters: ['Dino Medanhodzic', 'Jimmy Jansson', 'Moa "Cazzi Opeia" Carlebecker', 'Thomas G:son'],
+      bio: 'Jacqline är en sångerska som blev känd genom Idol 2021 där hon tog sig till finalen. Nu gör hon sin Melodifestivalen-debut med popbantan "Woman".',
     },
     {
       id: 'dt1-3',
@@ -25,6 +27,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Noll2',
       song: 'Berusade ord',
       songwriters: ['Fredrik Andersson', 'Jakob Westerlund', 'Wilmer Öberg'],
+      bio: 'Noll2 är en popduett från Örnsköldsvik bestående av Jakob Westerlund och Wilmer Öberg, båda födda 2002. Deras låt "Störd" blev viral på TikTok.',
     },
     {
       id: 'dt1-4',
@@ -33,6 +36,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Junior Lerin',
       song: 'Copacabana boy',
       songwriters: ['Fredrik Andersson'],
+      bio: 'Junior Lerin är en brasiliansk-svensk artist och dansare som blev känd från Let\'s Dance. Han gör sin Melodifestivalen-debut med det brasilianskinspirerade dansslaget "Copacabana Boy".',
     },
     {
       id: 'dt1-5',
@@ -41,6 +45,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Indra',
       song: 'Beautiful lie',
       songwriters: ['Anderz Wrethov', 'Indra', 'Kristofer Strandberg', 'Laurell Barker', 'Robert Skowronski'],
+      bio: 'Indra Elg är en mångkreativ artist från Växjö med miljontals följare på TikTok. Hon presenterar balladen "Beautiful Lie" om att välja mellan att lämna eller stanna.',
     },
     {
       id: 'dt1-6',
@@ -49,6 +54,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'A-Teens',
       song: 'Iconic',
       songwriters: ['Dino Medanhodzic', 'Jimmy Jansson', 'Lina Hansson', 'Moa "Cazzi Opeia" Carlebecker', 'Thomas G:son'],
+      bio: 'A-Teens är den ikoniska popgruppen från Stockholm som sålde miljontals skivor i början av 2000-talet. De gör comeback efter 20 år med sitt första nya material.',
     },
   ],
   dt2: [
@@ -59,6 +65,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Arwin',
       song: 'Glitter',
       songwriters: ['Arwin Ismail', 'Axel Schylström', 'Dino Medanhodzic', 'Melanie Wehbe', 'Robert Skowronski'],
+      bio: 'Arwin är en 18-årig artist från Stockholm vars musik blivit viral på TikTok. Han gör sin Melodifestivalen-debut med poplåten "Glitter".',
     },
     {
       id: 'dt2-2',
@@ -67,6 +74,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Laila Adèle',
       song: 'Oxygen',
       songwriters: ['Jonas Thander', 'Laila Adèle', 'Marcus Winther-John'],
+      bio: 'Laila Adèle är en svensk-marockansk sångerska och teaterartist. Hon återvänder till Melodifestivalen med den känslosamma balladen "Oxygen".',
     },
     {
       id: 'dt2-3',
@@ -75,6 +83,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Robin Bengtsson',
       song: 'Honey honey',
       songwriters: ['Gavin Jones', 'Pär Westerlund', 'Petter Tarland', 'Robin Bengtsson'],
+      bio: 'Robin Bengtsson vann Melodifestivalen 2017 med "I Can\'t Go On" och representerade Sverige i Eurovision. Han är en av tävlingens mest erfarna artister.',
     },
     {
       id: 'dt2-4',
@@ -83,6 +92,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Felicia',
       song: 'My system',
       songwriters: ['Audun Agnar', 'Emily Harbakk', 'Felicia', 'Julie Bergan', 'Theresa Rex'],
+      bio: 'Felicia, även känd som Fröken Snusk, är en epadunk-artist som toppat Spotify-listorna. Hon tar ett nytt musikaliskt steg med house-influerade "My System".',
     },
     {
       id: 'dt2-5',
@@ -91,6 +101,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Klara Almström',
       song: 'Där hela världen väntar',
       songwriters: ['Fredrik Sonefors', 'Jimmy Jansson', 'Klara Almström'],
+      bio: 'Klara Almström är en 22-årig artist och Idol-finalist inspirerad av jazz, folk och svensk pop. Hon gör sin Melodifestivalen-debut med den svenskspråkiga "Där hela världen väntar".',
     },
     {
       id: 'dt2-6',
@@ -99,6 +110,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Brandsta City Släckers',
       song: 'Rakt in i elden',
       songwriters: ['Anderz Wrethov', 'Elin Wrethov', 'Kristofer Strandberg', 'Robert Skowronski'],
+      bio: 'Brandsta City Släckers är ett rockband från Älvdalen som bildades 1994. De gör comeback till Melodifestivalen efter över 20 år med energiska "Rakt in i elden".',
     },
   ],
   dt3: [
@@ -109,6 +121,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Patrik Jean',
       song: 'Dusk till dawn',
       songwriters: ['David Lindgren Zacharias', 'Joy Deb', 'Melanie Wehbe', 'Patrik Jean'],
+      bio: 'Patrik Jean är en artist och låtskrivare som bland annat skrev vinnarlåten "Move" åt The Mamas 2020. Han återvänder nu till Melodifestivalen som soloartist.',
     },
     {
       id: 'dt3-2',
@@ -117,6 +130,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Korslagda',
       song: "King of Rock'n roll",
       songwriters: ['Andreas Werling', 'Pedro Sanchez', 'Kristofer Strandberg', 'Stefan "UBBE" Sjur'],
+      bio: 'Korslagda är ett rockband vars musik jämförs med AC/DC och Turbonegro. De presenterar sin energiska rock\'n\'roll-attityd i Melodifestivalen.',
     },
     {
       id: 'dt3-3',
@@ -125,6 +139,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Emilia Pantić',
       song: 'Ingenting',
       songwriters: ['Emilia Pantić', 'Fredrik Andersson', 'Jakob Westerlund', 'Theodor Ström', 'Wilmer Öberg'],
+      bio: 'Emilia Pantić är en ung artist som gör sin Melodifestivalen-debut med den känslosamma balladen "Ingenting", skriven tillsammans med medlemmarna i Noll2.',
     },
     {
       id: 'dt3-4',
@@ -133,6 +148,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Medina',
       song: "Viva l'amor",
       songwriters: ['Ali "Alibrorsh" Jammali', 'Anderz Wrethov', 'Dino Medanhodzic', 'Jimmy "Joker" Thörnfeldt', 'Sami Rekik'],
+      bio: 'Medina är en Melodifestivalen-favorit som tog tredjeplats 2022 och andraplats 2024. Han återvänder med kärlekshyllningen "Viva l\'amor".',
     },
     {
       id: 'dt3-5',
@@ -141,6 +157,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Eva Jumatate',
       song: 'Selfish',
       songwriters: ['Eva Jumatate', 'Herman Gardarfve', 'Marlene Strand', 'Ruth Lindegren'],
+      bio: 'Eva Jumatate är bara 17 år gammal och en av tävlingens yngsta deltagare. Hon gör sin debut med den personliga låten "Selfish".',
     },
     {
       id: 'dt3-6',
@@ -149,6 +166,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Saga Ludvigsson',
       song: "Ain't today",
       songwriters: ['Dino Medanhodzic', 'Jimmy Jansson', 'Johanna "Dotter" Jansson', 'Saga Ludvigsson'],
+      bio: 'Saga Ludvigsson är en återkommande Melodifestivalen-artist som återvänder med "Ain\'t Today", en låt om att lämna en stillastående relation.',
     },
   ],
   dt4: [
@@ -159,6 +177,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Cimberly',
       song: 'Eternity',
       songwriters: ['Cimberly-Malaika Wanyonyi', 'David Lindgren Zacharias', 'Dino Medanhodzic', 'Melanie Wehbe'],
+      bio: 'Cimberly Wanyonyi vann Idol 2023 och hennes hit "Sången om Värmland" har över 10 miljoner streams. Nu gör hon sin Melodifestivalen-debut med "Eternity".',
     },
     {
       id: 'dt4-2',
@@ -167,6 +186,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Timo Räisänen',
       song: 'Ingenting är efter oss',
       songwriters: ['Andreas "Giri" Lindbergh', 'Jimmy "Joker" Thörnfeldt', 'Joy Deb', 'Lina Räisänen', 'Linnea Deb', 'Timo Räisänen'],
+      bio: 'Timo Räisänen är en etablerad singer-songwriter som tidigare var medlem i Håkan Hellströms band. Han gör sin Melodifestivalen-debut med den personliga "Ingenting är efter oss".',
     },
     {
       id: 'dt4-3',
@@ -175,6 +195,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Meira Omar',
       song: 'Dooset daram',
       songwriters: ['Anderz Wrethov', 'Jimmy "Joker" Thörnfeldt', 'Laurell Barker', 'Meira Omar'],
+      bio: 'Meira Omar är en afghansk-svensk sångerska som blev känd genom Love Is Blind: Sweden. Hennes debut "Hush Hush" toppade listorna och hon återvänder med "Dooset daram".',
     },
     {
       id: 'dt4-4',
@@ -183,6 +204,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Felix Manu',
       song: 'Hatar att jag älskar dig',
       songwriters: ['Axel Schylström', 'Felix Manu', 'Fernand MP', 'Karl Flyckt'],
+      bio: 'Felix Manu är en svensk-ghanansk artist och låtskrivare som gör sin Melodifestivalen-debut med den svenskspråkiga "Hatar att jag älskar dig".',
     },
     {
       id: 'dt4-5',
@@ -191,6 +213,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Erika Jonsson',
       song: 'Från landet',
       songwriters: ['Amir Aly', 'Erika Jonsson', 'Mikael Karlsson'],
+      bio: 'Erika Jonsson är en country-inspirerad artist som gör sin Melodifestivalen-debut med "Från landet", en hyllning till det svenska landsbygdslivet.',
     },
     {
       id: 'dt4-6',
@@ -199,6 +222,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Smash Into Pieces',
       song: 'Hollow',
       songwriters: ['Benjamin Jennebo', 'Chris Adam Hedman Sörbye', 'Per Bergquist', 'Philip Strand'],
+      bio: 'Smash Into Pieces är ett rockband från Örebro bildat 2008 som har miljontals streams på Spotify. De återvänder till Melodifestivalen med den kraftfulla "Hollow".',
     },
   ],
   dt5: [
@@ -209,6 +233,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Alexa',
       song: 'Tongue tied',
       songwriters: ['Alexa', 'Moonshine (Jonatan Gusmark & Ludvig Evers)', 'Sunshine (Ellen Berg & Moa "Cazzi Opeia" Carlebecker)'],
+      bio: 'AleXa är en amerikansk K-pop-artist som vann American Song Contest 2022. Hon gör sin Melodifestivalen-debut som en av de första internationella K-pop-artisterna i tävlingen.',
     },
     {
       id: 'dt5-2',
@@ -217,6 +242,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Juliett',
       song: 'Långt från alla andra',
       songwriters: ['David Själin', 'Elias Kask', 'Herman Gardarfve', 'Ludvig Alamanos', 'Romeo Er-Melin', 'Valter Wigren'],
+      bio: 'Juliett är en femmannagrupp från Vallentuna som gör sin Melodifestivalen-debut med den svenskspråkiga "Långt från alla andra".',
     },
     {
       id: 'dt5-3',
@@ -225,6 +251,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Bladë',
       song: 'Who you are',
       songwriters: ['Isa Tengblad', 'Josefina Carlbom'],
+      bio: 'Bladë är artistnamnet för Isa Tengblad som tidigare tävlade i Melodifestivalen 2015 och 2016 som Isa. Hon gör comeback som singer-songwriter med "Who You Are".',
     },
     {
       id: 'dt5-4',
@@ -233,6 +260,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Lilla Al-Fadji',
       song: 'Delulu',
       songwriters: ['Daniel Réhn', 'Edward af Sillén', 'Lilla Al-Fadji', 'Fredrik Sonefors', 'Melanie Wehbe', 'Mikaela Samuelsson'],
+      bio: 'Lilla Al-Fadji är en rappare och artist som gör sin Melodifestivalen-debut med den catchy poplåten "Delulu".',
     },
     {
       id: 'dt5-5',
@@ -241,6 +269,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Vilhelm Buchaus',
       song: "Hearts don't lie",
       songwriters: ['David Zandén', 'Isa Molin', 'Vilhelm Buchaus'],
+      bio: 'Vilhelm Buchaus debuterade i Melodifestivalen 2025 och återkommer nu med "Hearts Don\'t Lie", inspirerad av klassisk rock i Bruce Springsteens anda.',
     },
     {
       id: 'dt5-6',
@@ -249,6 +278,7 @@ export const ENTRIES_BY_EVENT: Record<string, Entry[]> = {
       artist: 'Sanna Nielsen',
       song: 'Waste your love',
       songwriters: ['Jimmy Jansson', 'Peter Boström', 'Thomas G:son'],
+      bio: 'Sanna Nielsen vann Melodifestivalen 2014 med "Undo" och tog tredjeplats i Eurovision. Hon är en av Sveriges mest älskade artister och gör comeback med "Waste Your Love".',
     },
   ],
 };

@@ -37,6 +37,7 @@ export interface Entry {
   artist: string;
   song: string;
   songwriters: string[];
+  bio?: string;
 }
 
 export interface UserVote {
