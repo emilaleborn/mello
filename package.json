@@ -9,7 +9,7 @@
     "lint": "eslint",
     "dev:emulators": "firebase emulators:start --import=./emulator-data --export-on-exit=./emulator-data",
     "dev:all": "concurrently \"npm run dev:emulators\" \"npm run dev\"",
-    "seed": "npx tsx src/lib/firebase/seed.ts"
+    "seed": "npx tsx scripts/seed.ts"
   },
   "dependencies": {
     "firebase": "^12.9.0",
