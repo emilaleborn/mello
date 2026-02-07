@@ -20,18 +20,7 @@ export async function createParty(
   userName: string,
   userPhoto: string | null,
 ): Promise<Party> {
-  let joinCode = generateJoinCode();
-
-  // Ensure uniqueness
-  let attempts = 0;
-  while (attempts < 10) {
-    const q = query(collection(db, 'parties'), where('joinCode', '==', joinCode));
-    const snap = await getDocs(q);
-    if (snap.empty) break;
-    joinCode = generateJoinCode();
-    attempts++;
-  }
-
+  const joinCode = generateJoinCode();
   const partyRef = doc(collection(db, 'parties'));
   const party = {
     name,

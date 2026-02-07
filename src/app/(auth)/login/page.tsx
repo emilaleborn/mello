@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { signInWithPopup, GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
@@ -16,10 +16,13 @@ export default function LoginPage() {
   const user = useAuthStore((s) => s.user);
 
   // Redirect if already logged in
-  if (user) {
-    router.replace('/');
-    return null;
-  }
+  useEffect(() => {
+    if (user) {
+      router.replace('/');
+    }
+  }, [user, router]);
+
+  if (user) return null;
 
   async function handleGoogle() {
     setError('');

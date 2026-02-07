@@ -8,9 +8,9 @@ service cloud.firestore {
       allow write: if request.auth != null && request.auth.uid == userId;
     }
 
-    // Parties: members can read, any authed user can create, members can update
+    // Parties: authed users can read (needed for join-by-code queries), any authed user can create, members can update
     match /parties/{partyId} {
-      allow read: if request.auth != null && request.auth.uid in resource.data.members;
+      allow read: if request.auth != null;
       allow create: if request.auth != null;
       allow update: if request.auth != null && request.auth.uid in resource.data.members;
 
