@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { signInWithRedirect, getRedirectResult, GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
+import { signInWithRedirect, GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '@/lib/firebase/config';
 import { useAuthStore } from '@/stores/authStore';
@@ -14,13 +14,6 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const user = useAuthStore((s) => s.user);
-
-  // Handle Google redirect result
-  useEffect(() => {
-    getRedirectResult(auth).catch(() => {
-      // No redirect result or error — ignore
-    });
-  }, []);
 
   // Redirect if already logged in
   useEffect(() => {
