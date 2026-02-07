@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { signInWithPopup, GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
+import { signInWithRedirect, getRedirectResult, GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '@/lib/firebase/config';
 import { useAuthStore } from '@/stores/authStore';
@@ -14,6 +14,13 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const user = useAuthStore((s) => s.user);
+
+  // Handle Google redirect result
+  useEffect(() => {
+    getRedirectResult(auth).catch(() => {
+      // No redirect result or error — ignore
+    });
+  }, []);
 
   // Redirect if already logged in
   useEffect(() => {
@@ -28,8 +35,7 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
     try {
-      await signInWithPopup(auth, new GoogleAuthProvider());
-      router.replace('/');
+      await signInWithRedirect(auth, new GoogleAuthProvider());
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Sign-in failed';
       setError(msg);
