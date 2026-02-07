@@ -138,7 +138,7 @@ function StatsContent({ partyId }: { partyId: string }) {
 
   if (completedEventIds.length === 0) {
     return (
-      <div className="min-h-screen bg-[var(--background)] px-4 pb-20 pt-6">
+      <div className="min-h-dvh bg-[var(--background)] px-4 pb-20 pt-6">
         <div className="mx-auto max-w-lg">
           <h1 className="mb-4 text-2xl font-bold text-white">Statistik</h1>
           <div className="flex flex-col items-center gap-3 rounded-2xl bg-[var(--background-elevated)] py-10 text-center">
@@ -153,7 +153,7 @@ function StatsContent({ partyId }: { partyId: string }) {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--background)] px-4 pb-20 pt-6">
+    <div className="min-h-dvh bg-[var(--background)] px-4 pb-20 pt-6">
       <div className="mx-auto max-w-lg space-y-6">
         <div>
           <h1 className="text-2xl font-bold text-white">Statistik</h1>

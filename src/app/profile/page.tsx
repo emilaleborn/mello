@@ -30,7 +30,7 @@ function ProfileContent() {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-[var(--background)] pb-24">
+    <div className="min-h-dvh bg-[var(--background)] pb-24">
       <div className="flex flex-col items-center border-b border-[var(--border)] px-4 py-8">
         <UserAvatar
           uid={user.uid}

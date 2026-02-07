@@ -40,7 +40,7 @@ function JoinPartyContent() {
   }, [user, code, router]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[var(--background)] p-4">
+    <div className="flex min-h-dvh items-center justify-center bg-[var(--background)] p-4">
       {status === 'joining' && (
         <div className="flex flex-col items-center gap-4">
           <div className="h-10 w-10 animate-spin rounded-full border-4 border-[var(--mello-gold)] border-t-transparent" />

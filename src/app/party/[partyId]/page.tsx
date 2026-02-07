@@ -55,7 +55,7 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
 
   if (!party) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[var(--background)]">
+      <div className="flex min-h-dvh items-center justify-center bg-[var(--background)]">
         <div className="h-8 w-8 animate-spin rounded-full border-4 border-[var(--mello-gold)] border-t-transparent" />
       </div>
     );
@@ -70,7 +70,7 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
   const hasUserVoted = user ? voterIds.includes(user.uid) : false;
 
   return (
-    <div className="min-h-screen bg-[var(--background)] pb-24">
+    <div className="min-h-dvh bg-[var(--background)] pb-24">
       <div className="border-b border-[var(--border)] px-4 py-4">
         <h1 className="text-xl font-bold text-white">{party.name}</h1>
         <p className="text-sm text-[var(--foreground-muted)]">

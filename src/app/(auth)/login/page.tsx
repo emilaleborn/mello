@@ -66,7 +66,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative overflow-hidden flex min-h-screen items-center justify-center bg-[var(--background)] px-4">
+    <div className="relative overflow-hidden flex min-h-dvh items-center justify-center bg-[var(--background)] px-4">
       <div className="absolute -top-20 -left-20 h-60 w-60 rounded-full bg-[var(--mello-purple)]/20 blur-[100px]" />
       <div className="absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-[var(--mello-gold)]/15 blur-[100px]" />
 
