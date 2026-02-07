@@ -1,0 +1,85 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useAuthStore } from '@/stores/authStore';
+import { subscribeToUserParties } from '@/lib/firebase/parties';
+import { AuthGuard } from '@/components/auth/AuthGuard';
+import { PartyCard } from '@/components/party/PartyCard';
+import { CreatePartyModal } from '@/components/party/CreatePartyModal';
+import { JoinPartyForm } from '@/components/party/JoinPartyForm';
+import type { Party } from '@/types';
+
+function PartyListContent() {
+  const user = useAuthStore((s) => s.user);
+  const [parties, setParties] = useState<Party[]>([]);
+  const [createOpen, setCreateOpen] = useState(false);
+  const [showJoin, setShowJoin] = useState(false);
+
+  useEffect(() => {
+    if (!user) return;
+    const unsub = subscribeToUserParties(user.uid, setParties);
+    return () => unsub();
+  }, [user]);
+
+  return (
+    <div className="min-h-screen bg-zinc-950 pb-24">
+      <div className="border-b border-zinc-800 px-4 py-4">
+        <h1 className="text-xl font-bold text-white">Mina sällskap</h1>
+      </div>
+
+      <div className="mx-auto max-w-lg px-4 py-4">
+        <div className="mb-6 flex gap-3">
+          <button
+            onClick={() => setCreateOpen(true)}
+            className="flex-1 rounded-xl bg-violet-600 py-3 text-sm font-bold text-white active:bg-violet-700"
+          >
+            Skapa sällskap
+          </button>
+          <button
+            onClick={() => setShowJoin(!showJoin)}
+            className="flex-1 rounded-xl bg-zinc-800 py-3 text-sm font-medium text-white active:bg-zinc-700"
+          >
+            Gå med
+          </button>
+        </div>
+
+        {showJoin && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            className="mb-6 overflow-hidden rounded-2xl bg-zinc-900 p-4"
+          >
+            <h3 className="mb-3 text-sm font-medium text-zinc-300">Ange kod</h3>
+            <JoinPartyForm />
+          </motion.div>
+        )}
+
+        {parties.length === 0 ? (
+          <div className="rounded-2xl bg-zinc-900 p-8 text-center">
+            <p className="text-3xl mb-3">👋</p>
+            <p className="text-sm text-zinc-400">
+              Du är inte med i något sällskap ännu. Skapa ett eller gå med via en kod!
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {parties.map((party) => (
+              <PartyCard key={party.id} party={party} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <CreatePartyModal open={createOpen} onClose={() => setCreateOpen(false)} />
+    </div>
+  );
+}
+
+export default function PartyListPage() {
+  return (
+    <AuthGuard>
+      <PartyListContent />
+    </AuthGuard>
+  );
+}

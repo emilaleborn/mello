@@ -1,0 +1,38 @@
+{
+  "name": "mello",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "dev:emulators": "firebase emulators:start --import=./emulator-data --export-on-exit=./emulator-data",
+    "dev:all": "concurrently \"npm run dev:emulators\" \"npm run dev\"",
+    "seed": "npx tsx src/lib/firebase/seed.ts"
+  },
+  "dependencies": {
+    "firebase": "^12.9.0",
+    "framer-motion": "^12.33.0",
+    "next": "16.1.6",
+    "qrcode.react": "^4.2.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "recharts": "^3.7.0",
+    "zustand": "^5.0.11"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.32",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "concurrently": "^9.2.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "firebase-admin": "^13.6.1",
+    "firebase-tools": "^15.5.1",
+    "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "typescript": "^5"
+  }
+}

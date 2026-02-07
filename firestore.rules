@@ -1,0 +1,37 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users: anyone authed can read, only owner can write
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Parties: members can read, any authed user can create, members can update
+    match /parties/{partyId} {
+      allow read: if request.auth != null && request.auth.uid in resource.data.members;
+      allow create: if request.auth != null;
+      allow update: if request.auth != null && request.auth.uid in resource.data.members;
+
+      // Votes: party members can read/write their own votes
+      match /votes/{eventId} {
+        allow read: if request.auth != null && request.auth.uid in get(/databases/$(database)/documents/parties/$(partyId)).data.members;
+        allow write: if request.auth != null && request.auth.uid in get(/databases/$(database)/documents/parties/$(partyId)).data.members;
+
+        match /userVotes/{userId} {
+          allow read: if request.auth != null && request.auth.uid in get(/databases/$(database)/documents/parties/$(partyId)).data.members;
+          allow write: if request.auth != null
+            && request.auth.uid == userId
+            && request.auth.uid in get(/databases/$(database)/documents/parties/$(partyId)).data.members;
+        }
+      }
+    }
+
+    // Events: any authed user reads, no client writes
+    match /events/{eventId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+  }
+}

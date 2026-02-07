@@ -1,0 +1,76 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { signOut } from 'firebase/auth';
+import { auth } from '@/lib/firebase/config';
+import { useAuthStore } from '@/stores/authStore';
+import { subscribeToUserParties } from '@/lib/firebase/parties';
+import { AuthGuard } from '@/components/auth/AuthGuard';
+import { UserAvatar } from '@/components/auth/UserAvatar';
+import { PartyCard } from '@/components/party/PartyCard';
+import type { Party } from '@/types';
+
+function ProfileContent() {
+  const user = useAuthStore((s) => s.user);
+  const router = useRouter();
+  const [parties, setParties] = useState<Party[]>([]);
+
+  useEffect(() => {
+    if (!user) return;
+    const unsub = subscribeToUserParties(user.uid, setParties);
+    return () => unsub();
+  }, [user]);
+
+  const handleSignOut = async () => {
+    await signOut(auth);
+    router.push('/login');
+  };
+
+  if (!user) return null;
+
+  return (
+    <div className="min-h-screen bg-zinc-950 pb-24">
+      <div className="flex flex-col items-center border-b border-zinc-800 px-4 py-8">
+        <UserAvatar
+          uid={user.uid}
+          photoURL={user.photoURL}
+          displayName={user.displayName}
+          size={80}
+        />
+        <h1 className="mt-3 text-lg font-bold text-white">{user.displayName}</h1>
+        {!user.isAnonymous && (
+          <p className="text-sm text-zinc-400">{user.isAnonymous ? 'Anonym' : 'Google-konto'}</p>
+        )}
+      </div>
+
+      <div className="mx-auto max-w-lg px-4 py-4">
+        {parties.length > 0 && (
+          <div className="mb-6">
+            <h2 className="mb-3 text-sm font-medium text-zinc-400">Mina sällskap</h2>
+            <div className="space-y-3">
+              {parties.map((party) => (
+                <PartyCard key={party.id} party={party} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <button
+          onClick={handleSignOut}
+          className="w-full rounded-xl bg-zinc-800 py-3 text-sm font-medium text-red-400 active:bg-zinc-700"
+        >
+          Logga ut
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default function ProfilePage() {
+  return (
+    <AuthGuard>
+      <ProfileContent />
+    </AuthGuard>
+  );
+}
