@@ -21,7 +21,7 @@ export function BottomNav() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--border)] bg-[var(--background)]/95 pb-safe backdrop-blur-md">
+    <nav className="shrink-0 z-40 border-t border-[var(--border)] bg-[var(--background)]/95 pb-safe backdrop-blur-md">
       <div className="mx-auto flex max-w-lg">
         {TABS.map((tab) => {
           const active = getActive(tab.href);

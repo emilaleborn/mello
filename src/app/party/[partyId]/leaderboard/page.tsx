@@ -54,7 +54,7 @@ function LeaderboardContent({ partyId }: { partyId: string }) {
   }, [partyId, user, completedEventIds]);
 
   return (
-    <div className="min-h-dvh bg-[var(--background)] px-4 pb-20 pt-6">
+    <div className="bg-[var(--background)] px-4 pb-4 pt-6">
       <div className="mx-auto max-w-lg">
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-[var(--foreground)]">Topplista</h1>

@@ -8,7 +8,7 @@ export function Header() {
   const user = useAuthStore((s) => s.user);
 
   return (
-    <header className="sticky top-0 z-40 flex items-center justify-between border-b border-[var(--border)] bg-[var(--background)]/95 px-4 py-3 shadow-[0_1px_12px_-4px_rgba(147,51,234,0.3)] backdrop-blur-md">
+    <header className="shrink-0 z-40 flex items-center justify-between border-b border-[var(--border)] bg-[var(--background)]/95 px-4 py-3 shadow-[0_1px_12px_-4px_rgba(147,51,234,0.3)] backdrop-blur-md">
       <Link href="/" className="flex items-center gap-1.5">
         <h1 className="bg-gradient-to-r from-[var(--mello-gold)] via-[var(--mello-magenta)] to-[var(--mello-purple)] bg-clip-text font-display text-xl font-extrabold text-transparent">
           Mello

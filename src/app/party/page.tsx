@@ -24,7 +24,7 @@ function PartyListContent() {
   }, [user]);
 
   return (
-    <div className="min-h-dvh bg-[var(--background)] pb-24">
+    <div className="bg-[var(--background)] pb-4">
       <div className="border-b border-[var(--border)] px-4 py-4">
         <h1 className="text-xl font-bold text-white">Mina sällskap</h1>
       </div>

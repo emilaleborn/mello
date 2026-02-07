@@ -62,7 +62,7 @@ function HomeContent() {
   }, [user]);
 
   return (
-    <div className="min-h-dvh bg-[var(--background)] pb-24">
+    <div className="bg-[var(--background)] pb-4">
       <div className="mx-auto max-w-lg px-4 py-4">
         {/* Event banner */}
         <div className="mb-6">

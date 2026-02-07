@@ -104,14 +104,14 @@ function EventPageContent() {
 
   if (!event) {
     return (
-      <div className="flex min-h-dvh items-center justify-center bg-[var(--background)]">
+      <div className="flex min-h-full items-center justify-center bg-[var(--background)]">
         <p className="text-[var(--foreground-muted)]">Event hittades inte.</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-dvh bg-[var(--background)] pb-24">
+    <div className="bg-[var(--background)] pb-4">
       {/* Back link */}
       <div className="px-4 pt-4">
         <Link

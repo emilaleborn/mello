@@ -13,11 +13,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const isAuthPage = pathname === '/login';
   const showChrome = !isAuthPage && !loading && user;
 
+  if (!showChrome) {
+    return <main>{children}</main>;
+  }
+
   return (
-    <>
-      {showChrome && <Header />}
-      <main className={showChrome ? 'pb-16' : ''}>{children}</main>
-      {showChrome && <BottomNav />}
-    </>
+    <div className="flex h-dvh flex-col">
+      <Header />
+      <main className="flex-1 overflow-y-auto">{children}</main>
+      <BottomNav />
+    </div>
   );
 }
