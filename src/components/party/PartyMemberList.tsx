@@ -1,18 +1,35 @@
 'use client';
 
+import { useState } from 'react';
 import { UserAvatar } from '@/components/auth/UserAvatar';
+import { removeMember } from '@/lib/firebase/parties';
 import type { Party, EventVotes } from '@/types';
 
 interface PartyMemberListProps {
   party: Party;
   aggregates?: EventVotes | null;
+  currentUserId?: string;
+  isAdmin?: boolean;
 }
 
-export function PartyMemberList({ party, aggregates }: PartyMemberListProps) {
+export function PartyMemberList({ party, aggregates, currentUserId, isAdmin }: PartyMemberListProps) {
+  const [removingUid, setRemovingUid] = useState<string | null>(null);
+
+  async function handleRemove(uid: string) {
+    if (!window.confirm(`Ta bort ${party.memberNames[uid] ?? 'denna medlem'} från gruppen?`)) return;
+    setRemovingUid(uid);
+    try {
+      await removeMember(party.id, uid);
+    } finally {
+      setRemovingUid(null);
+    }
+  }
+
   return (
     <div className="space-y-2">
       {party.members.map((uid) => {
         const hasVoted = aggregates?.voterIds?.includes(uid) ?? false;
+        const canRemove = isAdmin && uid !== currentUserId;
         return (
           <div
             key={uid}
@@ -33,6 +50,22 @@ export function PartyMemberList({ party, aggregates }: PartyMemberListProps) {
               >
                 {hasVoted ? 'Röstat' : 'Väntar'}
               </span>
+            )}
+            {canRemove && (
+              <button
+                onClick={() => handleRemove(uid)}
+                disabled={removingUid === uid}
+                className="ml-1 flex h-7 w-7 items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-700 hover:text-red-400 disabled:opacity-50"
+                aria-label={`Ta bort ${party.memberNames[uid] ?? 'medlem'}`}
+              >
+                {removingUid === uid ? (
+                  <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-zinc-500 border-t-transparent" />
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+                    <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                  </svg>
+                )}
+              </button>
             )}
           </div>
         );

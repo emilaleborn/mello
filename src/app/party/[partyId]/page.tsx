@@ -11,6 +11,7 @@ import { useAuthStore } from '@/stores/authStore';
 import { ENTRIES_BY_EVENT } from '@/constants/entries';
 import { AuthGuard } from '@/components/auth/AuthGuard';
 import { SharePartySheet } from '@/components/party/SharePartySheet';
+import { PartyMemberList } from '@/components/party/PartyMemberList';
 import { VoteTracker } from '@/components/voting/VoteTracker';
 import { PartyResults } from '@/components/stats/PartyResults';
 import type { Party, EventVotes, UserVote } from '@/types';
@@ -119,6 +120,16 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
             votingClosed={votingClosed}
           />
         )}
+
+        {/* Members */}
+        <div>
+          <h2 className="mb-3 text-sm font-medium text-zinc-400">Medlemmar</h2>
+          <PartyMemberList
+            party={party}
+            currentUserId={user?.uid}
+            isAdmin={user ? party.createdBy === user.uid : false}
+          />
+        </div>
 
         {/* Navigation links */}
         <div className="flex gap-3">

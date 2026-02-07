@@ -7,6 +7,8 @@ import {
   getDocs,
   updateDoc,
   arrayUnion,
+  arrayRemove,
+  deleteField,
   onSnapshot,
   serverTimestamp,
 } from 'firebase/firestore';
@@ -85,6 +87,15 @@ export function subscribeToParty(
     if (snap.exists()) {
       callback({ id: snap.id, ...snap.data() } as Party);
     }
+  });
+}
+
+export async function removeMember(partyId: string, memberUid: string): Promise<void> {
+  const partyRef = doc(db, 'parties', partyId);
+  await updateDoc(partyRef, {
+    members: arrayRemove(memberUid),
+    [`memberNames.${memberUid}`]: deleteField(),
+    [`memberPhotos.${memberUid}`]: deleteField(),
   });
 }
 
