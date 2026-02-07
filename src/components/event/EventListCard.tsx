@@ -69,7 +69,7 @@ export function EventListCard({ event, entries, status, index }: EventListCardPr
         }`}
       >
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-semibold text-white">{event.name}</h3>
+          <h3 className="font-display font-extrabold tracking-tight text-white">{event.name}</h3>
           <StatusDot status={status} />
         </div>
 

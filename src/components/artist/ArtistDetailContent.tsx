@@ -115,8 +115,8 @@ export function ArtistDetailContent({ entryId }: ArtistDetailContentProps) {
           </span>
         </div>
 
-        <h1 className="font-display text-2xl font-bold text-white">{entry.artist}</h1>
-        <p className="text-lg text-[var(--mello-gold)]">{entry.song}</p>
+        <h1 className="font-display text-2xl font-black tracking-tight text-white">{entry.artist}</h1>
+        <p className="font-display text-lg font-bold text-[var(--mello-gold)]">{entry.song}</p>
         <span className="mt-1 text-sm text-[var(--foreground-muted)]">
           {event.name} &middot; Startnr {entry.startNumber}
         </span>
@@ -131,7 +131,7 @@ export function ArtistDetailContent({ entryId }: ArtistDetailContentProps) {
             transition={{ delay: 0.05 }}
             className="rounded-2xl bg-[var(--background-elevated)] p-4"
           >
-            <h2 className="mb-2 text-sm font-semibold text-[var(--foreground-muted)]">Om artisten</h2>
+            <h2 className="section-label mb-2 text-[var(--foreground-muted)]">Om artisten</h2>
             <p className="text-[var(--foreground)]">{entry.bio}</p>
           </motion.div>
         )}
@@ -145,7 +145,7 @@ export function ArtistDetailContent({ entryId }: ArtistDetailContentProps) {
         >
           <div className="mb-2 flex items-center gap-2">
             <Mic2 className="h-4 w-4 text-[var(--foreground-muted)]" />
-            <h2 className="text-sm font-semibold text-[var(--foreground-muted)]">Låtskrivare</h2>
+            <h2 className="section-label text-[var(--foreground-muted)]">Låtskrivare</h2>
           </div>
           <p className="text-[var(--foreground)]">{entry.songwriters.join(', ')}</p>
         </motion.div>
@@ -185,7 +185,7 @@ export function ArtistDetailContent({ entryId }: ArtistDetailContentProps) {
             transition={{ delay: 0.2 }}
           >
             <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-white">Sällskapets betyg</h2>
+              <h2 className="font-display text-lg font-extrabold tracking-tight text-white">Sällskapets betyg</h2>
             </div>
 
             {/* Party selector */}
@@ -207,7 +207,7 @@ export function ArtistDetailContent({ entryId }: ArtistDetailContentProps) {
               <div className="rounded-2xl bg-[var(--background-elevated)] p-4">
                 {/* Average score */}
                 <div className="mb-4 flex items-center gap-4">
-                  <span className="text-4xl font-bold text-[var(--mello-gold)]">
+                  <span className="score-display text-4xl text-[var(--mello-gold)] text-glow-gold">
                     {entryAgg.avg.toFixed(1)}
                   </span>
                   <div>

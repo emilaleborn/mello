@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useAuthStore } from '@/stores/authStore';
 import { Header } from './Header';
 import { BottomNav } from './BottomNav';
+import { FloatingParticles } from '@/components/ui/FloatingParticles';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -19,6 +20,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex h-dvh flex-col">
+      <FloatingParticles />
       <Header />
       <main className="flex-1 overflow-y-auto">{children}</main>
       <BottomNav />

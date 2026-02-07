@@ -62,7 +62,7 @@ export function SharePartySheet({ open, onClose, joinCode, partyName }: SharePar
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-[var(--border)]" />
-            <h2 className="mb-6 text-center text-lg font-bold text-white">
+            <h2 className="mb-6 text-center font-display text-lg font-extrabold text-white">
               Bjud in till {partyName}
             </h2>
 

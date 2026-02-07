@@ -10,7 +10,7 @@ export function PartyAverageScore({ avg, count }: PartyAverageScoreProps) {
 
   return (
     <div className="flex items-baseline gap-1.5">
-      <span className="text-lg font-bold text-[var(--mello-gold)]">{avg.toFixed(1)}</span>
+      <span className="score-display text-lg text-[var(--mello-gold)]">{avg.toFixed(1)}</span>
       <span className="text-xs text-[var(--foreground-muted)]">({count} {count === 1 ? 'röst' : 'röster'})</span>
     </div>
   );

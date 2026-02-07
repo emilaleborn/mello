@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { BarChart3 } from 'lucide-react';
+import { ArtistImage } from '@/components/ui/ArtistImage';
 import type { VoteAggregate, Entry } from '@/types';
 import { MELLO_EVENTS } from '@/constants/events';
 import { calculatePartyRankings, type RankedEntry } from '@/lib/utils/statistics';
@@ -95,6 +96,8 @@ export function LeaderboardTable({
             {entry.rank}
           </span>
 
+          <ArtistImage entryId={entry.id} artistName={entry.artist} size={36} />
+
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
               <p className="truncate font-medium text-white">{entry.artist}</p>
@@ -106,7 +109,7 @@ export function LeaderboardTable({
           </div>
 
           <div className="text-right">
-            <p className="text-lg font-bold text-[var(--mello-gold)]">
+            <p className="score-display text-lg text-[var(--mello-gold)]">
               {entry.avg.toFixed(1)}
             </p>
             <p className="text-xs text-[var(--foreground-muted)]">

@@ -52,7 +52,7 @@ export function EntryCard({
             </span>
           </div>
           <div className="min-w-0">
-            <h3 className="font-bold text-white">{entry.artist}</h3>
+            <h3 className="font-display font-extrabold text-white">{entry.artist}</h3>
             <p className="truncate text-sm text-[var(--foreground-muted)]">{entry.song}</p>
           </div>
         </Link>

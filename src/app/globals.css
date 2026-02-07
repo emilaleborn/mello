@@ -59,6 +59,31 @@ body {
   filter: drop-shadow(0 0 8px rgba(147, 51, 234, 0.4));
 }
 
+/* Stage-style section label — uppercase tracked small caps like venue cue cards */
+.section-label {
+  font-family: var(--font-display), var(--font-sans), Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  font-size: 0.6875rem; /* 11px */
+}
+
+/* Gradient text for page-level headings */
+.heading-gradient {
+  background: linear-gradient(to right, var(--foreground), var(--mello-gold-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Scoreboard-style number display */
+.score-display {
+  font-family: var(--font-display), var(--font-sans), Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
 /* Shimmer animation for live/countdown elements */
 @keyframes shimmer {
   0%, 100% { opacity: 1; }
@@ -135,6 +160,69 @@ textarea {
 /* Override for inline/small elements that are wrapped in larger touch targets */
 .touch-target-sm {
   min-height: auto;
+}
+
+/* Animated border glow for login card */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-rotate {
+  from { --glow-angle: 0deg; }
+  to { --glow-angle: 360deg; }
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent,
+    var(--mello-gold) 10%,
+    var(--mello-magenta) 20%,
+    transparent 30%
+  );
+  opacity: 0.5;
+  animation: border-rotate 8s linear infinite;
+}
+
+/* Floating light particles */
+@keyframes particle-float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: var(--particle-peak-opacity, 0.6);
+  }
+  50% {
+    transform: translateY(calc(var(--particle-travel, -80vh) * 0.5)) translateX(var(--particle-sway, 15px));
+  }
+  92% {
+    opacity: var(--particle-peak-opacity, 0.6);
+  }
+  100% {
+    transform: translateY(var(--particle-travel, -80vh)) translateX(0px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(0.5px);
+  animation: particle-float var(--particle-duration, 14s) ease-in-out infinite;
+  animation-delay: var(--particle-delay, 0s);
 }
 
 /* Safe area insets for PWA */

@@ -72,7 +72,7 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
   return (
     <div className="bg-[var(--background)] pb-4">
       <div className="border-b border-[var(--border)] px-4 py-4">
-        <h1 className="text-xl font-bold text-white">{party.name}</h1>
+        <h1 className="font-display text-xl font-extrabold tracking-tight text-white">{party.name}</h1>
         <p className="text-sm text-[var(--foreground-muted)]">
           {party.members.length} {party.members.length === 1 ? 'medlem' : 'medlemmar'}
         </p>
@@ -100,7 +100,7 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
         {/* Current event section */}
         {currentEvent && (
           <div>
-            <h2 className="mb-3 text-sm font-medium text-[var(--foreground-muted)]">
+            <h2 className="section-label mb-3 text-[var(--foreground-muted)]">
               {currentEvent.event.name}
             </h2>
 
@@ -123,7 +123,7 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
 
         {/* Members */}
         <div>
-          <h2 className="mb-3 text-sm font-medium text-[var(--foreground-muted)]">Medlemmar</h2>
+          <h2 className="section-label mb-3 text-[var(--foreground-muted)]">Medlemmar</h2>
           <PartyMemberList
             party={party}
             currentUserId={user?.uid}

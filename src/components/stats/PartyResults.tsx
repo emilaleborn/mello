@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart } from 'lucide-react';
+import { ArtistImage } from '@/components/ui/ArtistImage';
 import type { VoteAggregate, Entry, UserVote, Party } from '@/types';
 import { calculatePartyRankings } from '@/lib/utils/statistics';
 
@@ -41,7 +42,7 @@ export function PartyResults({
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-white">Resultat</h2>
+        <h2 className="font-display text-lg font-extrabold tracking-tight text-white">Resultat</h2>
         <span className="text-xs text-[var(--foreground-muted)]">
           {voterIds.length} av {party.members.length} har röstat
         </span>
@@ -84,6 +85,8 @@ export function PartyResults({
                       {entry.rank}
                     </span>
 
+                    <ArtistImage entryId={entry.id} artistName={entry.artist} size={36} />
+
                     <div className="min-w-0 flex-1">
                       <p className="truncate font-medium text-white">
                         {entry.artist}
@@ -101,7 +104,7 @@ export function PartyResults({
                         </span>
                       )}
                       <div className="text-right">
-                        <p className="text-lg font-bold text-[var(--mello-gold)]">
+                        <p className="score-display text-lg text-[var(--mello-gold)]">
                           {entry.avg.toFixed(1)}
                         </p>
                         <p className="text-xs text-[var(--foreground-muted)]">
@@ -176,7 +179,7 @@ export function PartyResults({
 
       {maxFavorites > 0 && (
         <div className="rounded-2xl bg-[var(--background-elevated)] p-4">
-          <h3 className="mb-3 text-sm font-medium text-[var(--foreground)]">
+          <h3 className="section-label mb-3 text-[var(--foreground)]">
             Favoritfördelning
           </h3>
           <div className="space-y-2">

@@ -38,7 +38,7 @@ function ProfileContent() {
           displayName={user.displayName}
           size={80}
         />
-        <h1 className="mt-3 text-lg font-bold text-white">{user.displayName}</h1>
+        <h1 className="mt-3 font-display text-xl font-extrabold tracking-tight text-white">{user.displayName}</h1>
         {!user.isAnonymous && (
           <p className="text-sm text-[var(--foreground-muted)]">{user.isAnonymous ? 'Anonym' : 'Google-konto'}</p>
         )}
@@ -47,7 +47,7 @@ function ProfileContent() {
       <div className="mx-auto max-w-lg px-4 py-4">
         {parties.length > 0 && (
           <div className="mb-6">
-            <h2 className="mb-3 text-sm font-medium text-[var(--foreground-muted)]">Mina sällskap</h2>
+            <h2 className="section-label mb-3 text-[var(--foreground-muted)]">Mina sällskap</h2>
             <div className="space-y-3">
               {parties.map((party) => (
                 <PartyCard key={party.id} party={party} />

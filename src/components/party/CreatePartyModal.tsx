@@ -55,7 +55,7 @@ export function CreatePartyModal({ open, onClose, onCreated }: CreatePartyModalP
             className="w-full max-w-sm rounded-2xl bg-[var(--background-elevated)] border border-[var(--border)] p-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="mb-4 text-lg font-bold text-white">Skapa sällskap</h2>
+            <h2 className="mb-4 font-display text-lg font-extrabold text-white">Skapa sällskap</h2>
 
             <input
               type="text"

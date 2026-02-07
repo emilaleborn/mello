@@ -33,8 +33,8 @@ function EventsListContent() {
   return (
     <div className="bg-[var(--background)] pb-4">
       <div className="border-b border-[var(--border)] px-4 py-4">
-        <h1 className="text-xl font-bold text-white">Tävlingar</h1>
-        <p className="text-sm text-[var(--foreground-muted)]">
+        <h1 className="font-display text-xl font-extrabold tracking-tight text-white">Tävlingar</h1>
+        <p className="section-label mt-0.5 text-[var(--foreground-muted)]">
           Melodifestivalen 2026
         </p>
       </div>

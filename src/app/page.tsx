@@ -71,7 +71,7 @@ function HomeContent() {
 
         {/* Parties section */}
         <div className="mb-6">
-          <h2 className="mb-3 text-sm font-medium text-[var(--foreground-muted)]">Mina sällskap</h2>
+          <h2 className="section-label mb-3 text-[var(--foreground-muted)]">Mina sällskap</h2>
 
           {parties.length > 0 ? (
             <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
@@ -85,7 +85,7 @@ function HomeContent() {
               animate={{ opacity: 1 }}
               className="rounded-2xl bg-[var(--background-elevated)] p-6 text-center"
             >
-              <p className="mb-1 text-base font-medium text-white">Välkommen till Mello!</p>
+              <p className="mb-1 text-base font-display font-bold text-white">Välkommen till Mello!</p>
               <p className="text-sm text-[var(--foreground-muted)]">
                 Skapa eller gå med i ett sällskap för att börja rösta.
               </p>
@@ -116,7 +116,7 @@ function HomeContent() {
             animate={{ opacity: 1, height: 'auto' }}
             className="overflow-hidden rounded-2xl bg-[var(--background-elevated)] p-4"
           >
-            <h3 className="mb-3 text-sm font-medium text-[var(--foreground)]">Ange kod</h3>
+            <h3 className="section-label mb-3 text-[var(--foreground)]">Ange kod</h3>
             <JoinPartyForm />
           </motion.div>
         )}

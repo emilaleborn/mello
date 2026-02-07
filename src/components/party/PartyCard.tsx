@@ -20,7 +20,7 @@ export function PartyCard({ party }: PartyCardProps) {
         animate={{ opacity: 1, y: 0 }}
         className="min-w-[200px] rounded-2xl border border-[var(--border)] bg-[var(--background-elevated)] p-4 active:opacity-90"
       >
-        <h3 className="mb-2 truncate text-base font-bold text-white">{party.name}</h3>
+        <h3 className="mb-2 truncate font-display text-base font-extrabold text-white">{party.name}</h3>
         <div className="mb-2 flex -space-x-2">
           {memberIds.map((uid) => (
             <div key={uid} className="ring-2 ring-[var(--background-elevated)] rounded-full">
