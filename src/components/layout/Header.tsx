@@ -2,6 +2,7 @@
 
 import { useAuthStore } from '@/stores/authStore';
 import { UserAvatar } from '@/components/auth/UserAvatar';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function Header() {
@@ -9,23 +10,17 @@ export function Header() {
 
   return (
     <header className="shrink-0 z-40 flex items-center justify-between border-b border-[var(--border)] bg-[var(--background)]/95 px-4 py-3 shadow-[0_1px_12px_-4px_rgba(147,51,234,0.3)] backdrop-blur-md">
-      <Link href="/" className="flex items-center gap-1.5">
+      <Link href="/" className="flex items-center gap-2">
+        <Image
+          src="/icons/icon-512.png"
+          alt="Mello"
+          width={32}
+          height={32}
+          className="rounded-full"
+        />
         <h1 className="bg-gradient-to-r from-[var(--mello-gold)] via-[var(--mello-magenta)] to-[var(--mello-purple)] bg-clip-text font-display text-xl font-extrabold text-transparent">
           Mello
         </h1>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="text-[var(--mello-gold)]"
-        >
-          <path
-            d="M8 0L9.4 6.6L16 8L9.4 9.4L8 16L6.6 9.4L0 8L6.6 6.6L8 0Z"
-            fill="currentColor"
-          />
-        </svg>
       </Link>
       {user && (
         <Link href="/profile">

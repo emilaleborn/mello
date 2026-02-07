@@ -23,6 +23,9 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Mello",
   description: "Rösta på Melodifestivalen med dina vänner",
+  icons: {
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
