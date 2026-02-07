@@ -58,10 +58,10 @@ export function SharePartySheet({ open, onClose, joinCode, partyName }: SharePar
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="w-full max-w-lg rounded-t-3xl bg-zinc-900 p-6 pb-10"
+            className="w-full max-w-lg rounded-t-3xl bg-[var(--background-elevated)] p-6 pb-10"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-zinc-700" />
+            <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-[var(--border)]" />
             <h2 className="mb-6 text-center text-lg font-bold text-white">
               Bjud in till {partyName}
             </h2>
@@ -69,10 +69,10 @@ export function SharePartySheet({ open, onClose, joinCode, partyName }: SharePar
             {/* Join code */}
             <button
               onClick={handleCopy}
-              className="mx-auto mb-6 block rounded-2xl bg-zinc-800 px-8 py-4 active:bg-zinc-700"
+              className="mx-auto mb-6 block rounded-2xl bg-[var(--background-surface)] px-8 py-4 active:opacity-80"
             >
-              <p className="mb-1 text-xs text-zinc-400">{copied ? 'Kopierad!' : 'Tryck för att kopiera'}</p>
-              <p className="text-3xl font-mono font-bold tracking-[0.4em] text-violet-400">
+              <p className="mb-1 text-xs text-[var(--foreground-muted)]">{copied ? 'Kopierad!' : 'Tryck för att kopiera'}</p>
+              <p className="text-3xl font-mono font-bold tracking-[0.4em] text-[var(--mello-gold)]">
                 {joinCode}
               </p>
             </button>
@@ -88,7 +88,7 @@ export function SharePartySheet({ open, onClose, joinCode, partyName }: SharePar
             <div className="space-y-3">
               <button
                 onClick={handleCopyLink}
-                className="w-full rounded-xl bg-zinc-800 py-3 text-sm font-medium text-white active:bg-zinc-700"
+                className="w-full rounded-xl bg-[var(--background-surface)] py-3 text-sm font-medium text-[var(--foreground)] active:opacity-80"
               >
                 {copied ? 'Kopierad!' : 'Kopiera länk'}
               </button>
@@ -96,7 +96,7 @@ export function SharePartySheet({ open, onClose, joinCode, partyName }: SharePar
               {typeof navigator !== 'undefined' && 'share' in navigator && (
                 <button
                   onClick={handleShare}
-                  className="w-full rounded-xl bg-violet-600 py-3 text-sm font-bold text-white active:bg-violet-700"
+                  className="w-full rounded-xl bg-gradient-to-r from-[var(--mello-gold)] to-[var(--mello-magenta)] py-3 text-sm font-bold text-black active:opacity-90"
                 >
                   Dela
                 </button>

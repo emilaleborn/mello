@@ -18,12 +18,12 @@ export function PartyCard({ party }: PartyCardProps) {
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        className="min-w-[200px] rounded-2xl bg-zinc-900 p-4 active:bg-zinc-800"
+        className="min-w-[200px] rounded-2xl border border-[var(--border)] bg-[var(--background-elevated)] p-4 active:opacity-90"
       >
         <h3 className="mb-2 truncate text-base font-bold text-white">{party.name}</h3>
         <div className="mb-2 flex -space-x-2">
           {memberIds.map((uid) => (
-            <div key={uid} className="ring-2 ring-zinc-900 rounded-full">
+            <div key={uid} className="ring-2 ring-[var(--background-elevated)] rounded-full">
               <UserAvatar
                 uid={uid}
                 photoURL={party.memberPhotos[uid] ?? null}
@@ -33,12 +33,12 @@ export function PartyCard({ party }: PartyCardProps) {
             </div>
           ))}
           {extraCount > 0 && (
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-700 text-xs font-medium text-zinc-300 ring-2 ring-zinc-900">
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--background-surface)] text-xs font-medium text-[var(--foreground-muted)] ring-2 ring-[var(--background-elevated)]">
               +{extraCount}
             </div>
           )}
         </div>
-        <p className="text-xs text-zinc-400">
+        <p className="text-xs text-[var(--foreground-muted)]">
           {party.members.length} {party.members.length === 1 ? 'medlem' : 'medlemmar'}
         </p>
       </motion.div>

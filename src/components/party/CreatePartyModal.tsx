@@ -52,7 +52,7 @@ export function CreatePartyModal({ open, onClose, onCreated }: CreatePartyModalP
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="w-full max-w-sm rounded-2xl bg-zinc-900 p-6"
+            className="w-full max-w-sm rounded-2xl bg-[var(--background-elevated)] border border-[var(--border)] p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="mb-4 text-lg font-bold text-white">Skapa sällskap</h2>
@@ -63,7 +63,7 @@ export function CreatePartyModal({ open, onClose, onCreated }: CreatePartyModalP
               value={name}
               onChange={(e) => setName(e.target.value)}
               maxLength={30}
-              className="mb-4 w-full rounded-xl bg-zinc-800 px-4 py-3 text-white placeholder-zinc-500 outline-none focus:ring-2 focus:ring-violet-500"
+              className="mb-4 w-full rounded-xl bg-[var(--background-surface)] px-4 py-3 text-[var(--foreground)] placeholder-[var(--foreground-muted)] outline-none focus:ring-2 focus:ring-[var(--mello-gold)]"
               autoFocus
             />
 
@@ -72,14 +72,14 @@ export function CreatePartyModal({ open, onClose, onCreated }: CreatePartyModalP
             <div className="flex gap-3">
               <button
                 onClick={onClose}
-                className="flex-1 rounded-xl bg-zinc-800 py-3 text-sm font-medium text-zinc-300 active:bg-zinc-700"
+                className="flex-1 rounded-xl bg-[var(--background-surface)] py-3 text-sm font-medium text-[var(--foreground)] active:opacity-80"
               >
                 Avbryt
               </button>
               <button
                 onClick={handleCreate}
                 disabled={!name.trim() || loading}
-                className="flex-1 rounded-xl bg-violet-600 py-3 text-sm font-bold text-white disabled:opacity-50 active:bg-violet-700"
+                className="flex-1 rounded-xl bg-gradient-to-r from-[var(--mello-gold)] to-[var(--mello-magenta)] py-3 text-sm font-bold text-black disabled:opacity-50 active:opacity-90"
               >
                 {loading ? 'Skapar...' : 'Skapa'}
               </button>

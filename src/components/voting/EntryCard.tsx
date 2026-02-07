@@ -33,16 +33,20 @@ export function EntryCard({
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      className="rounded-2xl bg-zinc-900 p-4"
+      className={`rounded-2xl bg-[var(--background-elevated)] border-l-2 p-4 ${
+        rating !== undefined
+          ? 'border-l-[var(--mello-gold)] shadow-[-2px_0_8px_-2px_rgba(240,180,41,0.3)]'
+          : 'border-[var(--mello-purple)]/40'
+      }`}
     >
       <div className="mb-3 flex items-start justify-between">
         <div className="flex items-start gap-3">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-violet-600/20 text-sm font-bold text-violet-400">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--mello-gold)]/15 text-sm font-bold text-[var(--mello-gold)] border border-[var(--mello-gold)]/30">
             {entry.startNumber}
           </span>
           <div>
             <h3 className="font-bold text-white">{entry.artist}</h3>
-            <p className="text-sm text-zinc-400">{entry.song}</p>
+            <p className="text-sm text-[var(--foreground-muted)]">{entry.song}</p>
           </div>
         </div>
         <FavoriteButton active={isFavorite} onToggle={onToggleFavorite} disabled={disabled} />
@@ -53,9 +57,9 @@ export function EntryCard({
       </div>
 
       {hasVoted && partyAvg !== undefined && partyVoteCount !== undefined && (
-        <div className="mt-3 border-t border-zinc-800 pt-3">
+        <div className="mt-3 border-t border-[var(--border)] pt-3">
           <div className="flex items-center gap-2">
-            <span className="text-xs text-zinc-500">Sällskapets snitt:</span>
+            <span className="text-xs text-[var(--foreground-muted)]">Sällskapets snitt:</span>
             <PartyAverageScore avg={partyAvg} count={partyVoteCount} />
           </div>
         </div>

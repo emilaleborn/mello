@@ -48,13 +48,13 @@ export function JoinPartyForm({ initialCode = '', onJoined }: JoinPartyFormProps
         value={code}
         onChange={(e) => setCode(e.target.value.toUpperCase().slice(0, 6))}
         maxLength={6}
-        className="w-full rounded-xl bg-zinc-800 px-4 py-3 text-center text-xl font-mono tracking-[0.3em] text-white placeholder-zinc-600 outline-none focus:ring-2 focus:ring-violet-500"
+        className="w-full rounded-xl bg-[var(--background-surface)] px-4 py-3 text-center text-xl font-mono tracking-[0.3em] text-white placeholder-[var(--foreground-muted)] outline-none focus:ring-2 focus:ring-[var(--mello-gold)]"
       />
       {error && <p className="text-sm text-red-400">{error}</p>}
       <button
         onClick={handleJoin}
         disabled={code.length !== 6 || loading}
-        className="w-full rounded-xl bg-violet-600 py-3 text-sm font-bold text-white disabled:opacity-50 active:bg-violet-700"
+        className="w-full rounded-xl bg-gradient-to-r from-[var(--mello-gold)] to-[var(--mello-magenta)] py-3 text-sm font-bold text-black disabled:opacity-50 active:opacity-90"
       >
         {loading ? 'Ansluter...' : 'Gå med'}
       </button>

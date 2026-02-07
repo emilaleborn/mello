@@ -13,17 +13,17 @@ export function VoteTracker({ party, voterIds }: VoteTrackerProps) {
   const votedCount = party.members.filter((m) => voterSet.has(m)).length;
 
   return (
-    <div className="rounded-2xl bg-zinc-900 p-4">
+    <div className="rounded-2xl bg-[var(--background-elevated)] p-4">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-medium text-zinc-300">Röstningsstatus</h3>
-        <span className="text-xs text-zinc-400">
+        <h3 className="text-sm font-medium text-[var(--foreground)]">Röstningsstatus</h3>
+        <span className="text-xs text-[var(--foreground-muted)]">
           {votedCount} av {totalMembers} har röstat
         </span>
       </div>
 
-      <div className="mb-3 h-2 overflow-hidden rounded-full bg-zinc-800">
+      <div className="mb-3 h-2 overflow-hidden rounded-full bg-[var(--background-surface)]">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-violet-600 to-violet-400 transition-all duration-500"
+          className="h-full rounded-full bg-gradient-to-r from-[var(--mello-gold)] to-[var(--mello-magenta)] transition-all duration-500"
           style={{
             width: totalMembers > 0 ? `${(votedCount / totalMembers) * 100}%` : '0%',
           }}
@@ -38,7 +38,7 @@ export function VoteTracker({ party, voterIds }: VoteTrackerProps) {
           return (
             <div key={memberId} className="flex items-center gap-2">
               {hasVoted ? (
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/20 text-green-400">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--mello-gold)]/20 text-[var(--mello-gold)]">
                   <svg
                     className="h-3 w-3"
                     fill="none"
@@ -54,12 +54,12 @@ export function VoteTracker({ party, voterIds }: VoteTrackerProps) {
                   </svg>
                 </span>
               ) : (
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-700">
-                  <span className="h-2 w-2 rounded-full bg-zinc-500" />
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--background-surface)]">
+                  <span className="h-2 w-2 rounded-full bg-[var(--foreground-muted)]" />
                 </span>
               )}
               <span
-                className={`text-sm ${hasVoted ? 'text-zinc-200' : 'text-zinc-500'}`}
+                className={`text-sm ${hasVoted ? 'text-[var(--foreground)]' : 'text-[var(--foreground-muted)]'}`}
               >
                 {name}
               </span>

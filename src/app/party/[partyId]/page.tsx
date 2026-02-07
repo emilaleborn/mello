@@ -55,8 +55,8 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
 
   if (!party) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-zinc-950">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-violet-500 border-t-transparent" />
+      <div className="flex min-h-screen items-center justify-center bg-[var(--background)]">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-[var(--mello-gold)] border-t-transparent" />
       </div>
     );
   }
@@ -70,10 +70,10 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
   const hasUserVoted = user ? voterIds.includes(user.uid) : false;
 
   return (
-    <div className="min-h-screen bg-zinc-950 pb-24">
-      <div className="border-b border-zinc-800 px-4 py-4">
+    <div className="min-h-screen bg-[var(--background)] pb-24">
+      <div className="border-b border-[var(--border)] px-4 py-4">
         <h1 className="text-xl font-bold text-white">{party.name}</h1>
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-[var(--foreground-muted)]">
           {party.members.length} {party.members.length === 1 ? 'medlem' : 'medlemmar'}
         </p>
       </div>
@@ -83,14 +83,14 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
         <div className="flex gap-3">
           <button
             onClick={() => setShareOpen(true)}
-            className="flex-1 rounded-xl bg-violet-600 py-3 text-sm font-bold text-white active:bg-violet-700"
+            className="flex-1 rounded-xl bg-gradient-to-r from-[var(--mello-gold)] to-[var(--mello-magenta)] py-3 text-sm font-bold text-black active:opacity-90"
           >
             Bjud in
           </button>
           {eventId && (
             <Link
               href={`/event/${eventId}`}
-              className="flex flex-1 items-center justify-center rounded-xl bg-zinc-800 py-3 text-sm font-medium text-white active:bg-zinc-700"
+              className="flex flex-1 items-center justify-center rounded-xl bg-[var(--background-surface)] py-3 text-sm font-medium text-white active:opacity-80"
             >
               {hasUserVoted ? 'Ändra röst' : 'Rösta'}
             </Link>
@@ -100,7 +100,7 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
         {/* Current event section */}
         {currentEvent && (
           <div>
-            <h2 className="mb-3 text-sm font-medium text-zinc-400">
+            <h2 className="mb-3 text-sm font-medium text-[var(--foreground-muted)]">
               {currentEvent.event.name}
             </h2>
 
@@ -123,7 +123,7 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
 
         {/* Members */}
         <div>
-          <h2 className="mb-3 text-sm font-medium text-zinc-400">Medlemmar</h2>
+          <h2 className="mb-3 text-sm font-medium text-[var(--foreground-muted)]">Medlemmar</h2>
           <PartyMemberList
             party={party}
             currentUserId={user?.uid}
@@ -135,13 +135,13 @@ function PartyDetailContent({ partyId }: { partyId: string }) {
         <div className="flex gap-3">
           <Link
             href={`/party/${partyId}/stats`}
-            className="flex-1 rounded-xl bg-zinc-900 py-3 text-center text-sm font-medium text-zinc-300 active:bg-zinc-800"
+            className="flex-1 rounded-xl bg-[var(--background-elevated)] py-3 text-center text-sm font-medium text-[var(--foreground)] active:opacity-80"
           >
             Statistik
           </Link>
           <Link
             href={`/party/${partyId}/leaderboard`}
-            className="flex-1 rounded-xl bg-zinc-900 py-3 text-center text-sm font-medium text-zinc-300 active:bg-zinc-800"
+            className="flex-1 rounded-xl bg-[var(--background-elevated)] py-3 text-center text-sm font-medium text-[var(--foreground)] active:opacity-80"
           >
             Topplista
           </Link>

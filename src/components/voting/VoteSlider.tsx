@@ -16,10 +16,12 @@ export function VoteSlider({ value, onChange, disabled }: VoteSliderProps) {
           disabled={disabled}
           className={`flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors ${
             value === n
-              ? 'bg-violet-500 text-white shadow-lg shadow-violet-500/30'
+              ? n >= 8
+                ? 'bg-gradient-to-br from-[var(--mello-magenta)] to-[var(--mello-gold)] text-black shadow-lg shadow-[var(--mello-gold)]/30'
+                : 'bg-gradient-to-br from-[var(--mello-gold)] to-[var(--mello-gold-light)] text-black shadow-lg shadow-[var(--mello-gold)]/30'
               : value !== undefined && n <= value
-                ? 'bg-violet-500/20 text-violet-300'
-                : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'
+                ? 'bg-[var(--mello-gold)]/20 text-[var(--mello-gold-light)]'
+                : 'bg-[var(--background-surface)] text-[var(--foreground-muted)] hover:bg-[var(--background-surface)]/80'
           } ${disabled ? 'opacity-50' : 'active:scale-95'}`}
         >
           {n}

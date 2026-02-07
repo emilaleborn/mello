@@ -40,11 +40,11 @@ function JoinPartyContent() {
   }, [user, code, router]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-950 p-4">
+    <div className="flex min-h-screen items-center justify-center bg-[var(--background)] p-4">
       {status === 'joining' && (
         <div className="flex flex-col items-center gap-4">
-          <div className="h-10 w-10 animate-spin rounded-full border-4 border-violet-500 border-t-transparent" />
-          <p className="text-sm text-zinc-400">Ansluter till sällskapet...</p>
+          <div className="h-10 w-10 animate-spin rounded-full border-4 border-[var(--mello-gold)] border-t-transparent" />
+          <p className="text-sm text-[var(--foreground-muted)]">Ansluter till sällskapet...</p>
         </div>
       )}
       {status === 'error' && (
@@ -52,7 +52,7 @@ function JoinPartyContent() {
           <p className="mb-4 text-red-400">{errorMsg}</p>
           <button
             onClick={() => router.push('/')}
-            className="rounded-xl bg-zinc-800 px-6 py-3 text-sm font-medium text-white"
+            className="rounded-xl bg-[var(--background-surface)] px-6 py-3 text-sm font-medium text-[var(--foreground)]"
           >
             Tillbaka
           </button>

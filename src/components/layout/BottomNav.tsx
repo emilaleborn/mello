@@ -20,7 +20,7 @@ export function BottomNav() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-zinc-800 bg-zinc-950/95 pb-safe backdrop-blur-md">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--border)] bg-[var(--background)]/95 pb-safe backdrop-blur-md">
       <div className="mx-auto flex max-w-lg">
         {TABS.map((tab) => {
           const active = getActive(tab.href);
@@ -33,13 +33,13 @@ export function BottomNav() {
               {active && (
                 <motion.div
                   layoutId="bottomnav-indicator"
-                  className="absolute -top-px left-3 right-3 h-0.5 rounded-full bg-violet-500"
+                  className="absolute -top-px left-3 right-3 h-[3px] rounded-full bg-gradient-to-r from-[var(--mello-gold)] to-[var(--mello-magenta)] shadow-[0_0_8px_var(--mello-gold)]"
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
               )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-6 w-6 ${active ? 'text-violet-400' : 'text-zinc-500'}`}
+                className={`h-6 w-6 ${active ? 'text-[var(--mello-gold)] drop-shadow-[0_0_4px_rgba(240,180,41,0.4)]' : 'text-[var(--foreground-muted)]'}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -48,7 +48,7 @@ export function BottomNav() {
                 <path strokeLinecap="round" strokeLinejoin="round" d={tab.icon} />
               </svg>
               <span
-                className={`text-[10px] font-medium ${active ? 'text-violet-400' : 'text-zinc-500'}`}
+                className={`text-[10px] font-medium ${active ? 'text-[var(--mello-gold)] drop-shadow-[0_0_4px_rgba(240,180,41,0.4)]' : 'text-[var(--foreground-muted)]'}`}
               >
                 {tab.label}
               </span>

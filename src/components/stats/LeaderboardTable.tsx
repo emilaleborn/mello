@@ -53,9 +53,9 @@ export function LeaderboardTable({
 
   if (allRanked.length === 0) {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-2xl bg-zinc-900 py-10 text-center">
+      <div className="flex flex-col items-center gap-3 rounded-2xl bg-[var(--background-elevated)] py-10 text-center">
         <span className="text-3xl">&#128202;</span>
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-[var(--foreground-muted)]">
           Topplistan fylls på efter varje deltävling
         </p>
       </div>
@@ -72,12 +72,12 @@ export function LeaderboardTable({
           transition={{ delay: i * 0.03 }}
           className={`flex items-center gap-3 rounded-2xl p-4 ${
             entry.rank === 1
-              ? 'bg-gradient-to-r from-yellow-500/10 to-zinc-900 ring-1 ring-yellow-500/30'
+              ? 'bg-gradient-to-r from-yellow-500/10 to-[var(--background-elevated)] ring-1 ring-yellow-500/30'
               : entry.rank === 2
-                ? 'bg-gradient-to-r from-zinc-400/10 to-zinc-900 ring-1 ring-zinc-400/20'
+                ? 'bg-gradient-to-r from-zinc-400/10 to-[var(--background-elevated)] ring-1 ring-zinc-400/20'
                 : entry.rank === 3
-                  ? 'bg-gradient-to-r from-orange-600/10 to-zinc-900 ring-1 ring-orange-500/20'
-                  : 'bg-zinc-900'
+                  ? 'bg-gradient-to-r from-orange-600/10 to-[var(--background-elevated)] ring-1 ring-orange-500/20'
+                  : 'bg-[var(--background-elevated)]'
           }`}
         >
           <span
@@ -88,7 +88,7 @@ export function LeaderboardTable({
                   ? 'bg-zinc-400/20 text-zinc-300'
                   : entry.rank === 3
                     ? 'bg-orange-600/20 text-orange-400'
-                    : 'bg-zinc-800 text-zinc-400'
+                    : 'bg-[var(--background-surface)] text-[var(--foreground-muted)]'
             }`}
           >
             {entry.rank}
@@ -97,18 +97,18 @@ export function LeaderboardTable({
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
               <p className="truncate font-medium text-white">{entry.artist}</p>
-              <span className="shrink-0 rounded-md bg-violet-500/20 px-1.5 py-0.5 text-[10px] font-semibold text-violet-400">
+              <span className="shrink-0 rounded-md bg-[var(--mello-purple)]/20 px-1.5 py-0.5 text-[10px] font-semibold text-[var(--mello-purple-light)]">
                 {entry.eventBadge}
               </span>
             </div>
-            <p className="truncate text-sm text-zinc-400">{entry.song}</p>
+            <p className="truncate text-sm text-[var(--foreground-muted)]">{entry.song}</p>
           </div>
 
           <div className="text-right">
-            <p className="text-lg font-bold text-violet-400">
+            <p className="text-lg font-bold text-[var(--mello-gold)]">
               {entry.avg.toFixed(1)}
             </p>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-[var(--foreground-muted)]">
               {entry.count} röst{entry.count !== 1 ? 'er' : ''}
             </p>
           </div>

@@ -15,7 +15,6 @@ export default function LoginPage() {
   const router = useRouter();
   const user = useAuthStore((s) => s.user);
 
-  // Redirect if already logged in
   useEffect(() => {
     if (user) {
       router.replace('/');
@@ -67,13 +66,16 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-950 px-4">
-      <div className="w-full max-w-sm rounded-2xl border border-zinc-800 bg-zinc-900 p-8 shadow-xl">
+    <div className="relative overflow-hidden flex min-h-screen items-center justify-center bg-[var(--background)] px-4">
+      <div className="absolute -top-20 -left-20 h-60 w-60 rounded-full bg-[var(--mello-purple)]/20 blur-[100px]" />
+      <div className="absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-[var(--mello-gold)]/15 blur-[100px]" />
+
+      <div className="w-full max-w-sm rounded-2xl border border-[var(--border)] bg-[var(--background-elevated)]/80 backdrop-blur-xl p-8 shadow-xl">
         <div className="mb-8 text-center">
-          <h1 className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent">
+          <h1 className="bg-gradient-to-r from-[var(--mello-gold)] via-[var(--mello-magenta)] to-[var(--mello-purple)] bg-clip-text text-5xl font-display font-black tracking-tight text-transparent text-glow-gold">
             Mello
           </h1>
-          <p className="mt-2 text-sm text-zinc-400">
+          <p className="mt-2 text-sm text-[var(--foreground-muted)]">
             Rösta på Melodifestivalen med vänner
           </p>
         </div>
@@ -111,16 +113,16 @@ export default function LoginPage() {
         </button>
 
         <div className="my-6 flex items-center gap-3">
-          <div className="h-px flex-1 bg-zinc-700" />
-          <span className="text-xs text-zinc-500">eller</span>
-          <div className="h-px flex-1 bg-zinc-700" />
+          <div className="h-px flex-1 bg-[var(--border)]" />
+          <span className="text-xs text-[var(--foreground-muted)]">eller</span>
+          <div className="h-px flex-1 bg-[var(--border)]" />
         </div>
 
         {!showNickname ? (
           <button
             onClick={() => setShowNickname(true)}
             disabled={loading}
-            className="w-full rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-3 text-sm font-medium text-zinc-200 transition hover:bg-zinc-700 disabled:opacity-50"
+            className="w-full rounded-xl border border-[var(--border)] bg-[var(--background-surface)] px-4 py-3 text-sm font-medium text-[var(--foreground)] transition hover:opacity-80 disabled:opacity-50"
           >
             Fortsätt som gäst
           </button>
@@ -133,13 +135,13 @@ export default function LoginPage() {
               onChange={(e) => setNickname(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleAnonymous()}
               maxLength={20}
-              className="w-full rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none focus:border-violet-500"
+              className="w-full rounded-xl border border-[var(--border)] bg-[var(--background-surface)] px-4 py-3 text-sm text-[var(--foreground)] placeholder-[var(--foreground-muted)] outline-none focus:border-[var(--mello-gold)]"
               autoFocus
             />
             <button
               onClick={handleAnonymous}
               disabled={loading || !nickname.trim()}
-              className="w-full rounded-xl bg-violet-600 px-4 py-3 text-sm font-medium text-white transition hover:bg-violet-500 disabled:opacity-50"
+              className="w-full rounded-xl bg-gradient-to-r from-[var(--mello-gold)] to-[var(--mello-magenta)] px-4 py-3 text-sm font-bold text-black transition disabled:opacity-50"
             >
               Gå med som {nickname.trim() || '...'}
             </button>

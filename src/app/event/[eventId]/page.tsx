@@ -68,18 +68,18 @@ function EventPageContent() {
 
   if (!event) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-zinc-950">
-        <p className="text-zinc-400">Event hittades inte.</p>
+      <div className="flex min-h-screen items-center justify-center bg-[var(--background)]">
+        <p className="text-[var(--foreground-muted)]">Event hittades inte.</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 pb-24">
+    <div className="min-h-screen bg-[var(--background)] pb-24">
       {/* Event header */}
-      <div className="border-b border-zinc-800 px-4 py-4">
+      <div className="border-b border-[var(--border)] px-4 py-4">
         <h1 className="text-xl font-bold text-white">{event.name}</h1>
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-[var(--foreground-muted)]">
           {event.date} &middot; {event.time} &middot; {event.city}
         </p>
       </div>
@@ -90,7 +90,7 @@ function EventPageContent() {
           <select
             value={selectedPartyId ?? ''}
             onChange={(e) => setSelectedPartyId(e.target.value)}
-            className="mb-4 w-full rounded-xl bg-zinc-800 px-4 py-3 text-white outline-none"
+            className="mb-4 w-full rounded-xl bg-[var(--background-surface)] px-4 py-3 text-white outline-none"
           >
             {parties.map((p) => (
               <option key={p.id} value={p.id}>
@@ -101,8 +101,8 @@ function EventPageContent() {
         )}
 
         {parties.length === 0 && (
-          <div className="mb-4 rounded-xl bg-zinc-900 p-4 text-center">
-            <p className="text-sm text-zinc-400">
+          <div className="mb-4 rounded-xl bg-[var(--background-elevated)] p-4 text-center">
+            <p className="text-sm text-[var(--foreground-muted)]">
               Gå med i ett sällskap för att rösta tillsammans!
             </p>
           </div>

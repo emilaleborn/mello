@@ -73,20 +73,20 @@ export function InstallPrompt() {
 
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-lg animate-in slide-in-from-bottom-4">
-      <div className="rounded-2xl bg-zinc-800 p-4 shadow-xl ring-1 ring-zinc-700">
+      <div className="rounded-2xl bg-[var(--background-surface)] p-4 shadow-xl ring-1 ring-[var(--border)]">
         <div className="flex items-start gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-600 text-lg font-bold text-white">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--mello-purple)] text-lg font-bold text-white">
             M
           </div>
           <div className="min-w-0 flex-1">
-            <p className="font-medium text-white">Installera Mello-appen</p>
+            <p className="font-medium text-[var(--foreground)]">Installera Mello-appen</p>
             {showIOSInstructions ? (
-              <p className="mt-1 text-sm text-zinc-400">
-                Tryck på <span className="text-white">Dela</span> &#8594;{' '}
-                <span className="text-white">Lägg till på hemskärmen</span>
+              <p className="mt-1 text-sm text-[var(--foreground-muted)]">
+                Tryck på <span className="text-[var(--foreground)]">Dela</span> &#8594;{' '}
+                <span className="text-[var(--foreground)]">Lägg till på hemskärmen</span>
               </p>
             ) : (
-              <p className="mt-1 text-sm text-zinc-400">
+              <p className="mt-1 text-sm text-[var(--foreground-muted)]">
                 Installera för snabb åtkomst direkt från hemskärmen
               </p>
             )}
@@ -96,14 +96,14 @@ export function InstallPrompt() {
           {!showIOSInstructions && (
             <button
               onClick={handleInstall}
-              className="flex-1 rounded-xl bg-violet-600 py-2 text-sm font-medium text-white transition-colors hover:bg-violet-500"
+              className="flex-1 rounded-xl bg-gradient-to-r from-[var(--mello-gold)] to-[var(--mello-magenta)] py-2 text-sm font-medium text-black transition-colors"
             >
               Installera
             </button>
           )}
           <button
             onClick={handleDismiss}
-            className={`rounded-xl bg-zinc-700 py-2 text-sm text-zinc-300 transition-colors hover:bg-zinc-600 ${showIOSInstructions ? 'flex-1' : 'px-4'}`}
+            className={`rounded-xl bg-[var(--background-elevated)] py-2 text-sm text-[var(--foreground)] transition-colors hover:opacity-80 ${showIOSInstructions ? 'flex-1' : 'px-4'}`}
           >
             {showIOSInstructions ? 'OK, jag förstår' : 'Inte nu'}
           </button>

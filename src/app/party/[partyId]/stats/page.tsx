@@ -138,12 +138,12 @@ function StatsContent({ partyId }: { partyId: string }) {
 
   if (completedEventIds.length === 0) {
     return (
-      <div className="min-h-screen bg-zinc-950 px-4 pb-20 pt-6">
+      <div className="min-h-screen bg-[var(--background)] px-4 pb-20 pt-6">
         <div className="mx-auto max-w-lg">
           <h1 className="mb-4 text-2xl font-bold text-white">Statistik</h1>
-          <div className="flex flex-col items-center gap-3 rounded-2xl bg-zinc-900 py-10 text-center">
+          <div className="flex flex-col items-center gap-3 rounded-2xl bg-[var(--background-elevated)] py-10 text-center">
             <span className="text-3xl">&#128202;</span>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-[var(--foreground-muted)]">
               Statistik visas efter första deltävlingen
             </p>
           </div>
@@ -153,28 +153,28 @@ function StatsContent({ partyId }: { partyId: string }) {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 px-4 pb-20 pt-6">
+    <div className="min-h-screen bg-[var(--background)] px-4 pb-20 pt-6">
       <div className="mx-auto max-w-lg space-y-6">
         <div>
           <h1 className="text-2xl font-bold text-white">Statistik</h1>
-          {party && <p className="text-sm text-zinc-400">{party.name}</p>}
+          {party && <p className="text-sm text-[var(--foreground-muted)]">{party.name}</p>}
         </div>
 
         {/* Overall agreement */}
-        <div className="rounded-2xl bg-zinc-900 p-4 text-center">
-          <p className="mb-1 text-sm text-zinc-400">Sällskapets enighet</p>
-          <p className="text-4xl font-bold text-violet-400">
+        <div className="rounded-2xl bg-[var(--background-elevated)] p-4 text-center">
+          <p className="mb-1 text-sm text-[var(--foreground-muted)]">Sällskapets enighet</p>
+          <p className="text-4xl font-bold text-[var(--mello-gold)]">
             {overallAgreement}%
           </p>
-          <p className="mt-1 text-xs text-zinc-500">
+          <p className="mt-1 text-xs text-[var(--foreground-muted)]">
             Hur överens ni är i snitt
           </p>
         </div>
 
         {/* Agreement chart */}
         {agreementData.length > 0 && (
-          <div className="rounded-2xl bg-zinc-900 p-4">
-            <h2 className="mb-3 text-sm font-medium text-zinc-300">
+          <div className="rounded-2xl bg-[var(--background-elevated)] p-4">
+            <h2 className="mb-3 text-sm font-medium text-[var(--foreground)]">
               Enighetsindex per bidrag
             </h2>
             <div className="h-64">
@@ -189,13 +189,13 @@ function StatsContent({ partyId }: { partyId: string }) {
                     type="category"
                     dataKey="name"
                     width={80}
-                    tick={{ fill: '#a1a1aa', fontSize: 11 }}
+                    tick={{ fill: '#9b8ec4', fontSize: 11 }}
                     axisLine={false}
                     tickLine={false}
                   />
                   <Tooltip
                     contentStyle={{
-                      background: '#27272a',
+                      background: '#15122a',
                       border: 'none',
                       borderRadius: 12,
                       color: '#fff',
@@ -211,7 +211,7 @@ function StatsContent({ partyId }: { partyId: string }) {
                     {agreementData.slice(0, 12).map((_, idx) => (
                       <Cell
                         key={idx}
-                        fill={idx === 0 ? '#8b5cf6' : '#6d28d9'}
+                        fill={idx === 0 ? '#f0b429' : '#9333ea'}
                         fillOpacity={1 - idx * 0.05}
                       />
                     ))}
@@ -223,8 +223,8 @@ function StatsContent({ partyId }: { partyId: string }) {
         )}
 
         {/* Rankings */}
-        <div className="rounded-2xl bg-zinc-900 p-4">
-          <h2 className="mb-3 text-sm font-medium text-zinc-300">
+        <div className="rounded-2xl bg-[var(--background-elevated)] p-4">
+          <h2 className="mb-3 text-sm font-medium text-[var(--foreground)]">
             Sammanlagd topplista
           </h2>
           <div className="space-y-2">
@@ -241,16 +241,16 @@ function StatsContent({ partyId }: { partyId: string }) {
                         ? 'bg-zinc-400/20 text-zinc-300'
                         : entry.rank === 3
                           ? 'bg-orange-600/20 text-orange-400'
-                          : 'bg-zinc-800 text-zinc-500'
+                          : 'bg-[var(--background-surface)] text-[var(--foreground-muted)]'
                   }`}
                 >
                   {entry.rank}
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm text-white">{entry.artist}</p>
-                  <p className="truncate text-xs text-zinc-500">{entry.song}</p>
+                  <p className="truncate text-xs text-[var(--foreground-muted)]">{entry.song}</p>
                 </div>
-                <span className="text-sm font-bold text-violet-400">
+                <span className="text-sm font-bold text-[var(--mello-gold)]">
                   {entry.avg.toFixed(1)}
                 </span>
               </div>

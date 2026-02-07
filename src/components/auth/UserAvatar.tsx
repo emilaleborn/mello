@@ -35,7 +35,7 @@ export function UserAvatar({ uid, photoURL, displayName, size = 40 }: UserAvatar
 
   return (
     <div
-      className="flex items-center justify-center rounded-full bg-violet-600 text-white"
+      className="flex items-center justify-center rounded-full bg-[var(--mello-purple)] text-white"
       style={{ width: size, height: size, fontSize: size * 0.5 }}
     >
       {emojiForUid(uid)}

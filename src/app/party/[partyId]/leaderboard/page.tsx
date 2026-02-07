@@ -54,12 +54,12 @@ function LeaderboardContent({ partyId }: { partyId: string }) {
   }, [partyId, user, completedEventIds]);
 
   return (
-    <div className="min-h-screen bg-zinc-950 px-4 pb-20 pt-6">
+    <div className="min-h-screen bg-[var(--background)] px-4 pb-20 pt-6">
       <div className="mx-auto max-w-lg">
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-white">Topplista</h1>
+          <h1 className="text-2xl font-bold text-[var(--foreground)]">Topplista</h1>
           {party && (
-            <p className="text-sm text-zinc-400">{party.name}</p>
+            <p className="text-sm text-[var(--foreground-muted)]">{party.name}</p>
           )}
         </div>
 

@@ -33,7 +33,7 @@ export function PartyMemberList({ party, aggregates, currentUserId, isAdmin }: P
         return (
           <div
             key={uid}
-            className="flex items-center gap-3 rounded-xl bg-zinc-800/50 px-4 py-3"
+            className="flex items-center gap-3 rounded-xl bg-[var(--background-surface)]/50 px-4 py-3"
           >
             <UserAvatar
               uid={uid}
@@ -46,7 +46,7 @@ export function PartyMemberList({ party, aggregates, currentUserId, isAdmin }: P
             </span>
             {aggregates && (
               <span
-                className={`text-xs font-medium ${hasVoted ? 'text-emerald-400' : 'text-zinc-500'}`}
+                className={`text-xs font-medium ${hasVoted ? 'text-[var(--mello-gold)]' : 'text-[var(--foreground-muted)]'}`}
               >
                 {hasVoted ? 'Röstat' : 'Väntar'}
               </span>
@@ -55,11 +55,11 @@ export function PartyMemberList({ party, aggregates, currentUserId, isAdmin }: P
               <button
                 onClick={() => handleRemove(uid)}
                 disabled={removingUid === uid}
-                className="ml-1 flex h-7 w-7 items-center justify-center rounded-full text-zinc-500 hover:bg-zinc-700 hover:text-red-400 disabled:opacity-50"
+                className="ml-1 flex h-7 w-7 items-center justify-center rounded-full text-[var(--foreground-muted)] hover:bg-[var(--background-surface)] hover:text-red-400 disabled:opacity-50"
                 aria-label={`Ta bort ${party.memberNames[uid] ?? 'medlem'}`}
               >
                 {removingUid === uid ? (
-                  <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-zinc-500 border-t-transparent" />
+                  <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--foreground-muted)] border-t-transparent" />
                 ) : (
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
                     <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />

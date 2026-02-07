@@ -30,8 +30,8 @@ function ProfileContent() {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-zinc-950 pb-24">
-      <div className="flex flex-col items-center border-b border-zinc-800 px-4 py-8">
+    <div className="min-h-screen bg-[var(--background)] pb-24">
+      <div className="flex flex-col items-center border-b border-[var(--border)] px-4 py-8">
         <UserAvatar
           uid={user.uid}
           photoURL={user.photoURL}
@@ -40,14 +40,14 @@ function ProfileContent() {
         />
         <h1 className="mt-3 text-lg font-bold text-white">{user.displayName}</h1>
         {!user.isAnonymous && (
-          <p className="text-sm text-zinc-400">{user.isAnonymous ? 'Anonym' : 'Google-konto'}</p>
+          <p className="text-sm text-[var(--foreground-muted)]">{user.isAnonymous ? 'Anonym' : 'Google-konto'}</p>
         )}
       </div>
 
       <div className="mx-auto max-w-lg px-4 py-4">
         {parties.length > 0 && (
           <div className="mb-6">
-            <h2 className="mb-3 text-sm font-medium text-zinc-400">Mina sällskap</h2>
+            <h2 className="mb-3 text-sm font-medium text-[var(--foreground-muted)]">Mina sällskap</h2>
             <div className="space-y-3">
               {parties.map((party) => (
                 <PartyCard key={party.id} party={party} />
@@ -58,7 +58,7 @@ function ProfileContent() {
 
         <button
           onClick={handleSignOut}
-          className="w-full rounded-xl bg-zinc-800 py-3 text-sm font-medium text-red-400 active:bg-zinc-700"
+          className="w-full rounded-xl bg-[var(--background-surface)] py-3 text-sm font-medium text-red-400 active:opacity-80"
         >
           Logga ut
         </button>

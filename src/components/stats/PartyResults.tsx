@@ -44,7 +44,7 @@ export function PartyResults({
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold text-white">Resultat</h2>
         {!canReveal && (
-          <span className="text-xs text-zinc-400">
+          <span className="text-xs text-[var(--foreground-muted)]">
             Väntar på att alla röstar...
           </span>
         )}
@@ -57,7 +57,7 @@ export function PartyResults({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-2"
+            className="celebrate space-y-2"
           >
             {ranked.map((entry, i) => {
               const isExpanded = expandedId === entry.id;
@@ -72,18 +72,18 @@ export function PartyResults({
                 >
                   <button
                     onClick={() => setExpandedId(isExpanded ? null : entry.id)}
-                    className="w-full rounded-2xl bg-zinc-900 p-4 text-left transition-colors hover:bg-zinc-800"
+                    className="w-full rounded-2xl bg-[var(--background-elevated)] p-4 text-left transition-colors hover:bg-[var(--background-surface)]"
                   >
                     <div className="flex items-center gap-3">
                       <span
                         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
                           entry.rank === 1
-                            ? 'bg-yellow-500/20 text-yellow-400'
+                            ? 'bg-yellow-500/20 text-yellow-400 shadow-[0_0_12px_rgba(250,204,21,0.3)]'
                             : entry.rank === 2
                               ? 'bg-zinc-400/20 text-zinc-300'
                               : entry.rank === 3
                                 ? 'bg-orange-600/20 text-orange-400'
-                                : 'bg-zinc-800 text-zinc-400'
+                                : 'bg-[var(--background-surface)] text-[var(--foreground-muted)]'
                         }`}
                       >
                         {entry.rank}
@@ -93,28 +93,28 @@ export function PartyResults({
                         <p className="truncate font-medium text-white">
                           {entry.artist}
                         </p>
-                        <p className="truncate text-sm text-zinc-400">
+                        <p className="truncate text-sm text-[var(--foreground-muted)]">
                           {entry.song}
                         </p>
                       </div>
 
                       <div className="flex items-center gap-3">
                         {favCount > 0 && (
-                          <span className="flex items-center gap-1 text-xs text-pink-400">
-                            <span className="text-pink-500">&#9829;</span>
+                          <span className="flex items-center gap-1 text-xs text-[var(--mello-magenta)]">
+                            <span className="text-[var(--mello-magenta)]">&#9829;</span>
                             {favCount}
                           </span>
                         )}
                         <div className="text-right">
-                          <p className="text-lg font-bold text-violet-400">
+                          <p className="text-lg font-bold text-[var(--mello-gold)]">
                             {entry.avg.toFixed(1)}
                           </p>
-                          <p className="text-xs text-zinc-500">
+                          <p className="text-xs text-[var(--foreground-muted)]">
                             {entry.count} röst{entry.count !== 1 ? 'er' : ''}
                           </p>
                         </div>
                         <svg
-                          className={`h-4 w-4 text-zinc-500 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+                          className={`h-4 w-4 text-[var(--foreground-muted)] transition-transform ${isExpanded ? 'rotate-180' : ''}`}
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -139,7 +139,7 @@ export function PartyResults({
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="mt-1 space-y-1 rounded-2xl bg-zinc-900/50 p-3">
+                        <div className="mt-1 space-y-1 rounded-2xl bg-[var(--background-elevated)]/50 p-3">
                           {Object.entries(userVotes).map(([userId, vote]) => {
                             const rating = vote.ratings[entry.id];
                             const isFav = vote.favorite === entry.id;
@@ -151,13 +151,13 @@ export function PartyResults({
                                 key={userId}
                                 className="flex items-center justify-between py-1"
                               >
-                                <span className="text-sm text-zinc-300">
+                                <span className="text-sm text-[var(--foreground)]">
                                   {memberName}
                                   {isFav && (
-                                    <span className="ml-1 text-pink-500">&#9829;</span>
+                                    <span className="ml-1 text-[var(--mello-magenta)]">&#9829;</span>
                                   )}
                                 </span>
-                                <span className="text-sm font-medium text-violet-400">
+                                <span className="text-sm font-medium text-[var(--mello-gold)]">
                                   {rating != null ? rating : '-'}
                                 </span>
                               </div>
@@ -176,13 +176,13 @@ export function PartyResults({
             key="locked"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex flex-col items-center gap-3 rounded-2xl bg-zinc-900 py-10 text-center"
+            className="flex flex-col items-center gap-3 rounded-2xl bg-[var(--background-elevated)] py-10 text-center"
           >
             <span className="text-4xl">&#128274;</span>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-[var(--foreground-muted)]">
               Resultaten visas när alla har röstat
             </p>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-[var(--foreground-muted)]">
               {voterIds.length} av {party.members.length} har röstat
             </p>
           </motion.div>
@@ -190,8 +190,8 @@ export function PartyResults({
       </AnimatePresence>
 
       {canReveal && maxFavorites > 0 && (
-        <div className="rounded-2xl bg-zinc-900 p-4">
-          <h3 className="mb-3 text-sm font-medium text-zinc-300">
+        <div className="rounded-2xl bg-[var(--background-elevated)] p-4">
+          <h3 className="mb-3 text-sm font-medium text-[var(--foreground)]">
             Favoritfördelning
           </h3>
           <div className="space-y-2">
@@ -208,14 +208,14 @@ export function PartyResults({
                 return (
                   <div key={entry.id} className="space-y-1">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-zinc-300">{entry.artist}</span>
-                      <span className="text-pink-400">
-                        <span className="text-pink-500">&#9829;</span> {count}
+                      <span className="text-[var(--foreground)]">{entry.artist}</span>
+                      <span className="text-[var(--mello-magenta)]">
+                        <span className="text-[var(--mello-magenta)]">&#9829;</span> {count}
                       </span>
                     </div>
-                    <div className="h-2 overflow-hidden rounded-full bg-zinc-800">
+                    <div className="h-2 overflow-hidden rounded-full bg-[var(--background-surface)]">
                       <motion.div
-                        className="h-full rounded-full bg-gradient-to-r from-pink-600 to-pink-400"
+                        className="h-full rounded-full bg-gradient-to-r from-[var(--mello-magenta)] to-[var(--mello-gold)]"
                         initial={{ width: 0 }}
                         animate={{ width: `${pct}%` }}
                         transition={{ duration: 0.6, delay: 0.2 }}

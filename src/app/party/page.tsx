@@ -23,8 +23,8 @@ function PartyListContent() {
   }, [user]);
 
   return (
-    <div className="min-h-screen bg-zinc-950 pb-24">
-      <div className="border-b border-zinc-800 px-4 py-4">
+    <div className="min-h-screen bg-[var(--background)] pb-24">
+      <div className="border-b border-[var(--border)] px-4 py-4">
         <h1 className="text-xl font-bold text-white">Mina sällskap</h1>
       </div>
 
@@ -32,13 +32,13 @@ function PartyListContent() {
         <div className="mb-6 flex gap-3">
           <button
             onClick={() => setCreateOpen(true)}
-            className="flex-1 rounded-xl bg-violet-600 py-3 text-sm font-bold text-white active:bg-violet-700"
+            className="flex-1 rounded-xl bg-gradient-to-r from-[var(--mello-gold)] to-[var(--mello-magenta)] py-3 text-sm font-bold text-black active:opacity-90"
           >
             Skapa sällskap
           </button>
           <button
             onClick={() => setShowJoin(!showJoin)}
-            className="flex-1 rounded-xl bg-zinc-800 py-3 text-sm font-medium text-white active:bg-zinc-700"
+            className="flex-1 rounded-xl bg-[var(--background-surface)] py-3 text-sm font-medium text-white active:opacity-80"
           >
             Gå med
           </button>
@@ -48,17 +48,17 @@ function PartyListContent() {
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
-            className="mb-6 overflow-hidden rounded-2xl bg-zinc-900 p-4"
+            className="mb-6 overflow-hidden rounded-2xl bg-[var(--background-elevated)] p-4"
           >
-            <h3 className="mb-3 text-sm font-medium text-zinc-300">Ange kod</h3>
+            <h3 className="mb-3 text-sm font-medium text-[var(--foreground)]">Ange kod</h3>
             <JoinPartyForm />
           </motion.div>
         )}
 
         {parties.length === 0 ? (
-          <div className="rounded-2xl bg-zinc-900 p-8 text-center">
+          <div className="rounded-2xl bg-[var(--background-elevated)] p-8 text-center">
             <p className="text-3xl mb-3">👋</p>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-[var(--foreground-muted)]">
               Du är inte med i något sällskap ännu. Skapa ett eller gå med via en kod!
             </p>
           </div>

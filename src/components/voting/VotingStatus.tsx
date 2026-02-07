@@ -14,11 +14,11 @@ export function VotingStatus({ status, aggregates, party }: VotingStatusProps) {
 
   if (status === 'VOTING_OPEN') {
     return (
-      <div className="flex items-center gap-2 rounded-xl bg-emerald-500/10 px-4 py-2.5">
-        <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-        <span className="text-sm font-medium text-emerald-400">Röstningen är öppen!</span>
+      <div className="flex items-center gap-2 rounded-xl bg-[var(--mello-gold)]/10 px-4 py-2.5">
+        <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--mello-gold)]" />
+        <span className="text-sm font-medium text-[var(--mello-gold)]">Röstningen är öppen!</span>
         {memberCount > 0 && (
-          <span className="ml-auto text-xs text-zinc-400">
+          <span className="ml-auto text-xs text-[var(--foreground-muted)]">
             {voterCount} av {memberCount} har röstat
           </span>
         )}
@@ -36,9 +36,9 @@ export function VotingStatus({ status, aggregates, party }: VotingStatusProps) {
   }
 
   return (
-    <div className="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2.5">
-      <span className="h-2 w-2 rounded-full bg-zinc-500" />
-      <span className="text-sm font-medium text-zinc-400">Väntar på sändningsstart</span>
+    <div className="flex items-center gap-2 rounded-xl bg-[var(--background-surface)] px-4 py-2.5">
+      <span className="h-2 w-2 rounded-full bg-[var(--foreground-muted)]" />
+      <span className="text-sm font-medium text-[var(--foreground-muted)]">Väntar på sändningsstart</span>
     </div>
   );
 }
