@@ -13,7 +13,6 @@ import { subscribeToUserParties } from '@/lib/firebase/parties';
 import { AuthGuard } from '@/components/auth/AuthGuard';
 import { EntryCard } from '@/components/voting/EntryCard';
 import { VotingStatus } from '@/components/voting/VotingStatus';
-import { SubmitVoteButton } from '@/components/voting/SubmitVoteButton';
 import type { MelloEvent, Entry } from '@/types';
 
 function EventPageContent() {
@@ -58,13 +57,10 @@ function EventPageContent() {
     draftRatings,
     draftFavorite,
     aggregates,
-    setDraftRating,
-    setDraftFavorite,
-    submitVote,
-    hasVoted,
+    savingEntries,
+    rateEntry,
+    toggleFavorite,
   } = useVoting(selectedPartyId, resolvedEventId);
-
-  const allRated = entries.every((e) => draftRatings[e.id] !== undefined);
 
   if (!event) {
     return (
@@ -128,29 +124,16 @@ function EventPageContent() {
                 entry={entry}
                 rating={draftRatings[entry.id]}
                 isFavorite={draftFavorite === entry.id}
-                onRate={(score) => setDraftRating(entry.id, score)}
-                onToggleFavorite={() =>
-                  setDraftFavorite(draftFavorite === entry.id ? null : entry.id)
-                }
+                onRate={(score) => rateEntry(entry.id, score)}
+                onToggleFavorite={() => toggleFavorite(entry.id)}
                 partyAvg={aggregates?.aggregates?.[entry.id]?.avg}
                 partyVoteCount={aggregates?.aggregates?.[entry.id]?.count}
-                hasVoted={hasVoted}
+                savingStatus={savingEntries[entry.id]}
                 disabled={!votingEnabled || !selectedPartyId}
               />
             </motion.div>
           ))}
         </div>
-
-        {/* Submit button */}
-        {selectedPartyId && votingEnabled && (
-          <div className="mt-6">
-            <SubmitVoteButton
-              onSubmit={submitVote}
-              disabled={!allRated}
-              hasVoted={hasVoted}
-            />
-          </div>
-        )}
       </div>
     </div>
   );

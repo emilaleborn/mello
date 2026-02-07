@@ -5,6 +5,7 @@ import { VoteSlider } from './VoteSlider';
 import { FavoriteButton } from './FavoriteButton';
 import { PartyAverageScore } from './PartyAverageScore';
 import type { Entry } from '@/types';
+import type { SavingStatus } from '@/stores/votingStore';
 
 interface EntryCardProps {
   entry: Entry;
@@ -14,7 +15,7 @@ interface EntryCardProps {
   onToggleFavorite: () => void;
   partyAvg?: number;
   partyVoteCount?: number;
-  hasVoted: boolean;
+  savingStatus?: SavingStatus;
   disabled?: boolean;
 }
 
@@ -26,7 +27,7 @@ export function EntryCard({
   onToggleFavorite,
   partyAvg,
   partyVoteCount,
-  hasVoted,
+  savingStatus,
   disabled,
 }: EntryCardProps) {
   return (
@@ -56,14 +57,31 @@ export function EntryCard({
         <VoteSlider value={rating} onChange={onRate} disabled={disabled} />
       </div>
 
-      {hasVoted && partyAvg !== undefined && partyVoteCount !== undefined && (
-        <div className="mt-3 border-t border-[var(--border)] pt-3">
+      <div className="mt-3 border-t border-[var(--border)] pt-3">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-xs text-[var(--foreground-muted)]">Sällskapets snitt:</span>
-            <PartyAverageScore avg={partyAvg} count={partyVoteCount} />
+            {partyAvg !== undefined && partyVoteCount !== undefined && partyVoteCount > 0 && (
+              <>
+                <span className="text-xs text-[var(--foreground-muted)]">Sällskapets snitt:</span>
+                <PartyAverageScore avg={partyAvg} count={partyVoteCount} />
+              </>
+            )}
           </div>
+          {savingStatus && (
+            <span className="text-xs">
+              {savingStatus === 'saving' && (
+                <span className="text-[var(--foreground-muted)] animate-pulse">Sparar...</span>
+              )}
+              {savingStatus === 'saved' && (
+                <span className="text-green-400">&#10003; Sparat</span>
+              )}
+              {savingStatus === 'error' && (
+                <span className="text-red-400">Fel vid sparning</span>
+              )}
+            </span>
+          )}
         </div>
-      )}
+      </div>
     </motion.div>
   );
 }
