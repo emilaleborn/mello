@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Users } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
 import { subscribeToUserParties } from '@/lib/firebase/parties';
 import { AuthGuard } from '@/components/auth/AuthGuard';
@@ -57,7 +58,7 @@ function PartyListContent() {
 
         {parties.length === 0 ? (
           <div className="rounded-2xl bg-[var(--background-elevated)] p-8 text-center">
-            <p className="text-3xl mb-3">👋</p>
+            <Users className="mx-auto mb-3 h-8 w-8 text-[var(--foreground-muted)]" />
             <p className="text-sm text-[var(--foreground-muted)]">
               Du är inte med i något sällskap ännu. Skapa ett eller gå med via en kod!
             </p>

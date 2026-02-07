@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo, use } from 'react';
+import { BarChart3 } from 'lucide-react';
 import { doc, onSnapshot, collection, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase/config';
 import { useAuthStore } from '@/stores/authStore';
@@ -142,7 +143,7 @@ function StatsContent({ partyId }: { partyId: string }) {
         <div className="mx-auto max-w-lg">
           <h1 className="mb-4 text-2xl font-bold text-white">Statistik</h1>
           <div className="flex flex-col items-center gap-3 rounded-2xl bg-[var(--background-elevated)] py-10 text-center">
-            <span className="text-3xl">&#128202;</span>
+            <BarChart3 className="h-8 w-8 text-[var(--foreground-muted)]" />
             <p className="text-sm text-[var(--foreground-muted)]">
               Statistik visas efter första deltävlingen
             </p>

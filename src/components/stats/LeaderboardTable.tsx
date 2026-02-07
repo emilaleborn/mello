@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { BarChart3 } from 'lucide-react';
 import type { VoteAggregate, Entry } from '@/types';
 import { MELLO_EVENTS } from '@/constants/events';
 import { calculatePartyRankings, type RankedEntry } from '@/lib/utils/statistics';
@@ -54,7 +55,7 @@ export function LeaderboardTable({
   if (allRanked.length === 0) {
     return (
       <div className="flex flex-col items-center gap-3 rounded-2xl bg-[var(--background-elevated)] py-10 text-center">
-        <span className="text-3xl">&#128202;</span>
+        <BarChart3 className="h-8 w-8 text-[var(--foreground-muted)]" />
         <p className="text-sm text-[var(--foreground-muted)]">
           Topplistan fylls på efter varje deltävling
         </p>

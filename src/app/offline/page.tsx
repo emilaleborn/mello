@@ -1,8 +1,12 @@
+import { WifiOff } from 'lucide-react';
+
 export default function OfflinePage() {
   return (
     <div className="flex min-h-dvh items-center justify-center bg-[var(--background)] px-4">
       <div className="text-center">
-        <div className="mb-4 text-5xl">&#128268;</div>
+        <div className="mb-4 flex justify-center">
+          <WifiOff className="h-12 w-12 text-[var(--foreground-muted)]" />
+        </div>
         <h1 className="mb-2 text-xl font-bold text-[var(--foreground)]">Du är offline</h1>
         <p className="text-sm text-[var(--foreground-muted)]">
           Anslut till internet för att använda Mello.

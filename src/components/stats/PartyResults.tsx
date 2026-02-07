@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Heart } from 'lucide-react';
 import type { VoteAggregate, Entry, UserVote, Party } from '@/types';
 import { calculatePartyRankings } from '@/lib/utils/statistics';
 
@@ -95,7 +96,7 @@ export function PartyResults({
                     <div className="flex items-center gap-3">
                       {favCount > 0 && (
                         <span className="flex items-center gap-1 text-xs text-[var(--mello-magenta)]">
-                          <span className="text-[var(--mello-magenta)]">&#9829;</span>
+                          <Heart className="h-3.5 w-3.5 fill-current" />
                           {favCount}
                         </span>
                       )}
@@ -148,7 +149,7 @@ export function PartyResults({
                               <span className="text-sm text-[var(--foreground)]">
                                 {memberName}
                                 {isFav && (
-                                  <span className="ml-1 text-[var(--mello-magenta)]">&#9829;</span>
+                                  <Heart className="ml-1 inline h-3 w-3 fill-current text-[var(--mello-magenta)]" />
                                 )}
                               </span>
                               <span className="text-sm font-medium text-[var(--mello-gold)]">
@@ -194,7 +195,7 @@ export function PartyResults({
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-[var(--foreground)]">{entry.artist}</span>
                       <span className="text-[var(--mello-magenta)]">
-                        <span className="text-[var(--mello-magenta)]">&#9829;</span> {count}
+                        <Heart className="inline h-3 w-3 fill-current text-[var(--mello-magenta)]" /> {count}
                       </span>
                     </div>
                     <div className="h-2 overflow-hidden rounded-full bg-[var(--background-surface)]">

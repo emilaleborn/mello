@@ -1,15 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import { User } from 'lucide-react';
 
-const ANON_EMOJIS = ['🎵', '🎤', '🎶', '🎸', '🥁', '🎹', '🎷', '🎺', '🪗', '🎻'];
-
-function emojiForUid(uid: string): string {
-  let hash = 0;
-  for (let i = 0; i < uid.length; i++) {
-    hash = (hash * 31 + uid.charCodeAt(i)) | 0;
-  }
-  return ANON_EMOJIS[Math.abs(hash) % ANON_EMOJIS.length];
+function initialsFor(name: string): string {
+  const parts = name.trim().split(/\s+/);
+  if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+  return name.slice(0, 2).toUpperCase();
 }
 
 interface UserAvatarProps {
@@ -33,12 +30,14 @@ export function UserAvatar({ uid, photoURL, displayName, size = 40 }: UserAvatar
     );
   }
 
+  const initials = displayName ? initialsFor(displayName) : null;
+
   return (
     <div
       className="flex items-center justify-center rounded-full bg-[var(--mello-purple)] text-white"
-      style={{ width: size, height: size, fontSize: size * 0.5 }}
+      style={{ width: size, height: size, fontSize: size * 0.4 }}
     >
-      {emojiForUid(uid)}
+      {initials || <User style={{ width: size * 0.5, height: size * 0.5 }} />}
     </div>
   );
 }

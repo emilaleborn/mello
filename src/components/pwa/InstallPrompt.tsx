@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -82,7 +83,7 @@ export function InstallPrompt() {
             <p className="font-medium text-[var(--foreground)]">Installera Mello-appen</p>
             {showIOSInstructions ? (
               <p className="mt-1 text-sm text-[var(--foreground-muted)]">
-                Tryck på <span className="text-[var(--foreground)]">Dela</span> &#8594;{' '}
+                Tryck på <span className="text-[var(--foreground)]">Dela</span> <ArrowRight className="inline h-3.5 w-3.5" />{' '}
                 <span className="text-[var(--foreground)]">Lägg till på hemskärmen</span>
               </p>
             ) : (

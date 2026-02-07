@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Check } from 'lucide-react';
 import { VoteSlider } from './VoteSlider';
 import { FavoriteButton } from './FavoriteButton';
 import { PartyAverageScore } from './PartyAverageScore';
@@ -73,7 +74,7 @@ export function EntryCard({
                 <span className="text-[var(--foreground-muted)] animate-pulse">Sparar...</span>
               )}
               {savingStatus === 'saved' && (
-                <span className="text-green-400">&#10003; Sparat</span>
+                <span className="inline-flex items-center gap-1 text-green-400"><Check className="h-3.5 w-3.5" /> Sparat</span>
               )}
               {savingStatus === 'error' && (
                 <span className="text-red-400">Fel vid sparning</span>
