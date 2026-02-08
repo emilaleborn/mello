@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mello-v1';
+const CACHE_NAME = 'mello-v2';
 const OFFLINE_URL = '/offline';
 
 const PRECACHE_URLS = ['/', '/offline'];
@@ -35,6 +35,7 @@ self.addEventListener('fetch', (event) => {
   // Cache-first for static assets
   if (
     url.pathname.startsWith('/icons/') ||
+    url.pathname.startsWith('/artists/') ||
     url.pathname.startsWith('/_next/static/')
   ) {
     event.respondWith(
