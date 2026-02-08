@@ -6,6 +6,7 @@ import {
   setDoc,
 } from 'firebase/firestore';
 import { db } from './config';
+import { trackEvent } from './analytics';
 import type { UserVote, EventVotes } from '@/types';
 
 export async function submitVote(
@@ -79,6 +80,7 @@ export async function submitVote(
       updatedAt: now,
     });
   });
+  trackEvent('submit_vote', { eventId });
 }
 
 export async function submitEntryVote(

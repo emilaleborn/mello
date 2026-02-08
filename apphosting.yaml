@@ -36,6 +36,11 @@ env:
     availability:
       - BUILD
       - RUNTIME
+  - variable: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+    value: "G-EES495YT06"
+    availability:
+      - BUILD
+      - RUNTIME
   - variable: NEXT_PUBLIC_USE_EMULATORS
     value: "false"
     availability:

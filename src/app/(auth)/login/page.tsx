@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { signInWithPopup, signInWithRedirect, GoogleAuthProvider, signInAnonymously } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '@/lib/firebase/config';
+import { trackEvent } from '@/lib/firebase/analytics';
 import { useAuthStore } from '@/stores/authStore';
 import VideoBackground from '@/components/login/VideoBackground';
 import { FloatingParticles } from '@/components/ui/FloatingParticles';
@@ -37,6 +38,7 @@ export default function LoginPage() {
       } else {
         await signInWithPopup(auth, new GoogleAuthProvider());
       }
+      trackEvent('login', { method: 'google' });
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Sign-in failed';
       setError(msg);
@@ -60,6 +62,7 @@ export default function LoginPage() {
         isAnonymous: true,
         createdAt: serverTimestamp(),
       });
+      trackEvent('login', { method: 'anonymous' });
       router.replace('/');
     } catch (e: unknown) {
       const msg = e instanceof Error ? e.message : 'Sign-in failed';
@@ -103,7 +106,7 @@ export default function LoginPage() {
               className="rounded-full"
             />
             <h1 className="bg-gradient-to-r from-[var(--mello-gold)] via-[var(--mello-magenta)] to-[var(--mello-purple)] bg-clip-text text-5xl font-display font-black tracking-tight text-transparent text-glow-gold">
-              Mello
+              Mellometer
             </h1>
           </div>
           <p className="mt-2 text-sm text-[var(--foreground-muted)]">

@@ -19,7 +19,7 @@ export function Header() {
           className="rounded-full"
         />
         <h1 className="bg-gradient-to-r from-[var(--mello-gold)] via-[var(--mello-magenta)] to-[var(--mello-purple)] bg-clip-text font-display text-xl font-extrabold text-transparent">
-          Mello
+          Mellometer
         </h1>
       </Link>
       {user && (

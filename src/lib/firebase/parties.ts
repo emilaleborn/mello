@@ -13,6 +13,7 @@ import {
   serverTimestamp,
 } from 'firebase/firestore';
 import { db } from './config';
+import { trackEvent } from './analytics';
 import { generateJoinCode } from '@/lib/utils/joinCode';
 import type { Party } from '@/types';
 
@@ -35,6 +36,7 @@ export async function createParty(
   };
 
   await setDoc(partyRef, party);
+  trackEvent('create_party');
 
   return {
     ...party,
@@ -62,6 +64,7 @@ export async function joinParty(
     [`memberNames.${userId}`]: userName,
     [`memberPhotos.${userId}`]: userPhoto,
   });
+  trackEvent('join_party');
 
   const data = partyDoc.data();
   return {
