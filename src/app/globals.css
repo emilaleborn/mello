@@ -225,6 +225,16 @@ textarea {
   animation-delay: var(--particle-delay, 0s);
 }
 
+/* Countdown tick animation */
+@keyframes count-tick {
+  0% { transform: translateY(0); }
+  15% { transform: translateY(-2px); }
+  30% { transform: translateY(0); }
+}
+.count-tick {
+  animation: count-tick 0.3s ease-out;
+}
+
 /* Safe area insets for PWA */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .pb-safe {
