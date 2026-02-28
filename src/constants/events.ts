@@ -56,7 +56,7 @@ export const MELLO_EVENTS: MelloEvent[] = [
     type: 'finalkval',
     name: 'Finalkval',
     date: '2026-02-28',
-    time: '21:30',
+    time: '21:00',
     city: 'Sundsvall',
     arena: 'Gärdehov Arena',
   },

@@ -30,14 +30,13 @@ export function getCurrentEvent(
 
   if (todayEvents.length > 0) {
     // For days with multiple events (Feb 28: DT5 + Finalkval), pick the relevant one
-    // Go in reverse to find the latest show that has started, or the next upcoming one
+    // Go in reverse to find the latest show that has started
     for (let i = todayEvents.length - 1; i >= 0; i--) {
       const e = todayEvents[i];
       const showStart = parseEventDateTime(e);
       const votingEnd = getVotingEndTime(e);
 
       if (now >= votingEnd) {
-        // This event's voting is closed
         continue;
       }
 
@@ -45,17 +44,19 @@ export function getCurrentEvent(
         return { event: e, status: 'VOTING_OPEN' };
       }
 
-      // Before this show's start — countdown
-      return { event: e, status: 'TODAY_COUNTDOWN' };
+      // This event hasn't started yet — continue checking earlier events
     }
 
-    // All today events have closed voting — check if we're still before midnight
-    const lastToday = todayEvents[todayEvents.length - 1];
-    const lastVotingEnd = getVotingEndTime(lastToday);
-    if (now >= lastVotingEnd) {
-      // After last voting window closed today — show RESULTS for the last event today
-      return { event: lastToday, status: 'RESULTS' };
+    // No event is currently live — either before the first event or all voting closed
+    const firstToday = todayEvents[0];
+    const firstStart = parseEventDateTime(firstToday);
+    if (now < firstStart) {
+      return { event: firstToday, status: 'TODAY_COUNTDOWN' };
     }
+
+    // All today events have closed voting — show RESULTS for the last event today
+    const lastToday = todayEvents[todayEvents.length - 1];
+    return { event: lastToday, status: 'RESULTS' };
   }
 
   // Not on an event day — find the most recent past event or next upcoming one
